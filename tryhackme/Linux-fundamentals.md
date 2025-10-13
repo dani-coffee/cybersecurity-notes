@@ -19,7 +19,24 @@
         -echo file1.txt
         -echo hi! > file1.txt
         -echo hi! >> file1.txt 
+        
+• **touch**-creating a new file
+#####  ✏️examples:
+        -touch file1.txt
+        
+• **cp**-copying content from one file to another
+#####  ✏️examples:
+        -cp file1.txt file2.txt
 
+• **rm**-removing files
+#####  ✏️examples:
+        -rm file1.txt file2.txt  
+• **whoami** - tells me my username on my machine
+
+• **mkdir** - creates a folder
+#####  ✏️examples:
+        -mkdir folder1
+        
 • **cat** -prints the contents of the inserted file
 #####   ✏️examples:
             -cat file1.txt
