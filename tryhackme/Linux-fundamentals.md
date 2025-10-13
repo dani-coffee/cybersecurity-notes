@@ -1,20 +1,20 @@
 # ⚙️ **Commands**
 •ls - lists all items in the current directory (basic info: file and directory names i)
-    ✏️examples:
-        -ls
-        -ls ~/Documents (if there's Documents folder in desktop)
+    # ✏️examples:
+        #-ls
+        #-ls ~/Documents (if there's Documents folder in desktop)
 
 •ll - it's just ls with the flag -l, meaning it lists all items in the current directory but in a long format(more details: file permissions,number of links,owner name, group name,file size,modification date/time,filename)        
 
 •cd - change directory (I have to insert a path(folders!!!))
-    ✏️examples:
-        -cd Desktop (if I'm at my home directory and i do ls, i see Documents,I can do cd Desktop to got to this directory)
-        -cd ..    ➝ I go back 1 step in my currrent path
-        -cd ~    ➝ I go back to the home directory no matter where I currently am
-        -cd ~/Desktop    ➝ if I wanna go back to Desktop directory
+   # ✏️examples:
+      #  -cd Desktop (if I'm at my home directory and i do ls, i see Documents,I can do cd Desktop to got to this directory)
+       # -cd ..    ➝ I go back 1 step in my currrent path
+      #  -cd ~    ➝ I go back to the home directory no matter where I currently am
+     #   -cd ~/Desktop    ➝ if I wanna go back to Desktop directory 
 
 •echo - prints an output to the terminal (adds automatically a newline in the end of a line,unless i add the flag -n)
-    ✏️examples:
+   #  ✏️examples:
         -echo Hello world!    ➝ prints Hello world!
         -echo file1.txt
         -echo hi! > file1.txt
