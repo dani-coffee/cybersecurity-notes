@@ -1,6 +1,6 @@
 # ⚙️ **Commands**
 •ls - lists all items in the current directory (basic info: file and directory names i)
-    ### ✏️examples:
+    ##### ✏️examples:
         -ls
         -ls ~/Documents (if there's Documents folder in desktop)
 
