@@ -7,21 +7,17 @@ I’m learning through hands-on platforms like [TryHackMe](https://tryhackme.com
 ---
 
 ## 📁 Repository Structure
-
-├── tryhackme/ # Notes from TryHackMe paths and rooms
-│ ├── pre-security.md
-│ └── security-101.md
+```
+├── tryhackme/ # Notes from TryHackMe courses and rooms
+│ ├── Linux_fundamentals.md
 │
 ├── htb/ # Hack The Box notes 
 │
 ├── notes/ # General study notes
-│ ├── linux.md
 │ ├── networking.md
-│ └── tools.md
-│ └── windows.md
 │
 └── README.md
-
+```
 
 ---
 
