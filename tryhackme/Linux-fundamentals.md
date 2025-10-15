@@ -1,4 +1,4 @@
-# ⚙️ **Commands**
+# 🖥️ **Linux commands**
 • `ls` -lists all items in the current directory (basic info: file and directory names)
 ##### ✏️examples:
         -ls
@@ -114,7 +114,7 @@
 
 
 
-# ⚙️ **Flags**
+# 🚩 **Flags**
 
 • `--help` if I write a command accepting flags, and I add '--help' ,it prints all of the possible flags that can go along with this command,is equivalent to 'man' ( man stands for manual),which opens manual version on my machine.
 ##### ✏️examples: 
@@ -159,7 +159,7 @@
 
 
 
-# ⚙️ **Common Directories**
+# 📁 **Common Directories**
 • `/etc` -  stores configuration files that are used by my operating system.It contains for example the `sudoers` file(who can use sudo and what commands they can run),as well as `passwd`(list of users and basic info about them like the username,home folder) and `shadow` files ( stores encrypted password hashes , often in sha512)
 
 • `/tmp` - similar to how the RAM works. Stores data until the computer is restarted.
@@ -172,13 +172,16 @@
 
 
 
-# ⚙️ **Keyboard useful combinations**
+# ⌨️ **Keyboard useful combinations**
 • `ctrl + l`    ➝ clears terminal
+
 • `Ctrl + Z`	➝equivalent to adding `&` in the end of a command
 
 
 
-# ⚙️ **Additional notes**
+
+
+# 🧠 **Additional notes**
 •using ~ meaning I point to the home directory,so instead of writing home i can write ~
 #####  ✏️examples:
 	-cd ~
@@ -193,5 +196,6 @@
 first `rwx` stands for the owner's permissions
 second `rwx` stands for the permissions of the group owner of the file
 third `rwx` stands for other users permissions
+
 
 •A superuser (also known as root) is a special user on Linux and Unix systems with full administrative privileges.
