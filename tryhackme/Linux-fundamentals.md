@@ -77,7 +77,7 @@
  • `file` - determining the file type
 
 • `su` - switching user ( for that I must know the username and the password unless I'm logged into my superuser(explanation in Additional notes))
-	🔸note: it's better to use `su -l` ( short for `--login`) because we start a shell that is much more similar to the actual user 		logging into the system
+	🔸note: it's better to use `su -l` ( short for `--login`) because we start a shell that is much more similar to the actual user logging into the system
 
 • `wget` - allows to download files from the web via http
 ##### ✏️examples: 
@@ -92,6 +92,11 @@
 
 • `ps aux` - see the processes run by other users and those that don't run from a session (i.e. system processes).
 
+• `less` - file pager ,it lets me view (but not edit) the contents of a text file
+##### ✏️examples: 
+	-less file1.txt
+	-ps aux | less
+	
 • `top` - shows real-time statistics about the processes running on my system instead of a one-time view,refreshes every 10s.
 	`htop` does the same but the output is colorful
 	to stop I do `Ctrl+C`
@@ -110,8 +115,10 @@
 
 • `fg`  bring a previously backgrounded process back to the foreground
 
-
-
+• `crontab -e` - allows to schedule a certain action or task to take place after the system has booted,flaf `-e` stands for editig .It requires 6 values
+MIN	What minute to execute at,HOUR	What hour to execute at,DOM	What day of the month to execute at,MON	What month of the year to execute at,DOW What day of the week to execute at,CMD The actual command that will be executed. `*` stands for-every
+##### ✏️examples: 
+	-0 */12 * * * cp -R /home/cmnatic/Documents /var/backups/	➝backup "cmnatic"'s  "Documents" every 12 hours
 
 
 # 🚩 **Flags**
@@ -156,6 +163,9 @@
 
 • `>>` - similar to '>' but this one appends,meaning even if the indicated file exists, it just adds the output to the file's original output 
 
+•`|` - takes the ouutput of the left command and passes into the right command
+#####  ✏️examples:
+        -ps aux | less
 
 
 
@@ -182,7 +192,7 @@
 
 
 # 🧠 **Additional notes**
-•using ~ meaning I point to the home directory,so instead of writing home i can write ~
+•using `~` meaning I point to the home directory,so instead of writing home i can write `~`
 #####  ✏️examples:
 	-cd ~
 
@@ -192,10 +202,23 @@
 `r` `w` `x` -stand for read,write,execute
 #####  ✏️example:
 	 -rwxrwxrwx
-`-` indicates that it's a file(not a directory) we work with 
-first `rwx` stands for the owner's permissions
-second `rwx` stands for the permissions of the group owner of the file
-third `rwx` stands for other users permissions
+	`-` indicates that it's a file(not a directory) we work with 
+	first `rwx` stands for the owner's permissions
+	second `rwx` stands for the permissions of the group owner of the file
+	third `rwx` stands for other users permissions
 
 
 •A superuser (also known as root) is a special user on Linux and Unix systems with full administrative privileges.
+
+•A reposiroty is a server or location that stores software packages for my system to download and install. APT installs packages from official repositories maintained by my Linux distribution (or trusted third parties like Docker, Node.js, etc.).That means:no shady download links,no sketchy .exe or .deb files,fewer security risks
+#####  ✏️example:
+	-sudo apt update	➝I should run this so I always have the most updated version of what I want to download
+	-sudo apt install firefox	➝APT fetches the Firefox package from a repository on the internet (like http://archive.ubuntu.com), downloads it, and installs it
+
+•PPA = Personal Package Archive.It’s a type of software repository specifically designed for Ubuntu (and Ubuntu-based distros like Linux Mint, Kali, Pop!_OS, etc.).
+When I add a PPA to my system, I'm saying: “Hey APT, also check this new place when I install or update software.”.I can use PPA for example if I want to take an application, make some changes to it, host my version somewhere, and install/update it on my system like any other app — using APT.
+#####  ✏️example:
+	-sudo add-apt-repository ppa:webupd8team/sublime-text-3	➝add the repository pps webupd8team
+	-sudo add-apt-repository --remove ppa:webupd8team/sublime-text-3	➝remove the repository pps webupd8team
+
+•GPG (Gnu Privacy Guard) is based on asymmetric cryptography.It's a tool for cryptographic signing and verification.It ensures that software packages or repositories I download are authentic and haven’t been tampered with.When I run apt update or apt install, APT checks the digital signature on packages against the GPG key.If the signature matches, APT trusts the package and installs it.
