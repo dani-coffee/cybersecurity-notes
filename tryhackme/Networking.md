@@ -91,3 +91,13 @@ In a 5 layer model ,it's in the application layer.
 • `End of an TCP connection` - consists of the messages FIN,ACK,FIN,ACK(ir order)
 
 • I might use non-standard ports for development, testing, permissions, or running multiple apps ,i just need to add `:` for example https://example.com:1234 (using 1234 instead of the default port of https which is 443),if i were to use the standard one so i simply write https://example.com 
+
+• `Ip` - internet protocol,belongs to the network layer.Its role is to identify a device on a network.Think of it like a home address — it says where to send the data.Used by: Routers, firewalls, and almost everything on the internet.
+
+• `Port`- Identifies a specific application/service on a device.used in the transport layer.
+Think of it like an apartment number in a building — it says which program on the computer should receive the data.Used by: TCP and UDP (transport protocols).
+
+• `firewall` - a device or software within or between a network responsible for determining what traffic is allowed to enter and exit.
+ It can be hardware (like a dedicated firewall appliance) or software (like Windows Firewall,snort).
+It sits between networks (e.g., between your LAN and the Internet) or sometimes within a single network.
+It checks packets using rules based on:IP addresses,Ports and protocols (meaning it operates on network and transport layers )
