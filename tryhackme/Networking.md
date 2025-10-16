@@ -100,4 +100,9 @@ Think of it like an apartment number in a building — it says which program on 
 • `firewall` - a device or software within or between a network responsible for determining what traffic is allowed to enter and exit.
  It can be hardware (like a dedicated firewall appliance) or software (like Windows Firewall,snort).
 It sits between networks (e.g., between your LAN and the Internet) or sometimes within a single network.
-It checks packets using rules based on:IP addresses,Ports and protocols (meaning it operates on network and transport layers )
+It checks packets using rules based on:IP addresses,Ports and protocols (meaning it operates on network and transport layers ).
+
+• `stateless firewall` -(static) it looks at each packet individually.It doesn’t remember anything about previous packets.It makes decisions only based on static rules, like:Source IP
+,Destination IP,Port number,Protocol (TCP/UDP)
+
+• `stateful firewall` - (dynamic) tracks the state of each connection (like TCP handshakes).It keeps a state table to remember active sessions.It understands:Which connections are new, established, or related. Also understands whether a packet belongs to an existing session.
