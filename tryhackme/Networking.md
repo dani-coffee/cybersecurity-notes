@@ -13,7 +13,11 @@ To connect to a Linux machine remotely I can use :
 • `TCP` -Transmission Control Protocol, a protocol designed for reliable, ordered, and error-checked delivery of data between devices.
 It is connection-oriented and used in situations where guaranteed delivery matters — such as file sharing, web browsing (HTTP/HTTPS), or email (SMTP/IMAP).
 
-• `UDP` - User Datagram Protocol,a transport layer protocol that is connectionless and does not guarantee delivery, order, or error checking like TCP.
+
+• `TCP/IP model` - includes TCP and UDP protocols and consists of 4 layers ( application,transport,internet,network) with information that is added to each layer of the model (encapsulation).The headers added to the packet traversing  the layers (using TCP)are for example: source port ( chose randomly ,value between 0 to 65535) and a destination port ( if it's a website using HTTP protocol,the port is always 80),checksum,source  and destination IP ,sequence number and ACK number (important note,in TCP these numbers are using the number of bytes,not the number of the messages,also ACK number is seqence number+1(in bytes!)).
+For UDP the headers are: source and destination port,source and destination IP,checksu,Data and TTL
+
+• `UDP` - User Datagram Protocol,a transport layer protocol that is stateless(doesn't need a constant connection between the 2 devices) and does not guarantee delivery, order, or error checking like TCP.
 It’s useful in scenarios where speed is more important than reliability, such as live streaming, online gaming, VoIP (e.g., Zoom), or protocols like DHCP and DNS.
 
 • `DNS` - Domain Name System, a protocol dictating how website addresses are translated into IP addresses.
@@ -75,3 +79,15 @@ In a 5 layer model ,it's in the application layer.
 • `Network address` - The portion of an IP address used to identify the network segment (consists of the most significant bits)
 
 • `Host address` - The portion of an IP address that  used to identify devices within a network (consists of the least significant bits)
+
+• `packet` - A unit of data at the Network Layer.It contains logical addressing information, such as IP addresses (source and destination).It's typically created by protocols like IP.A packet using IP will have a set of headers like the TTL(time to leave,to not let a packet being sent endlessly if it never reaches the distination),or the checksum to check the correctness of the message ,source IP and destination IP
+
+• `frame` - A unit of data at the Data Link Layer .It encapsulates a packet and adds additional information like:MAC addresses (source and destination),Error-checking bits (e.g. CRC), etc.It's used for physical transmission over the medium (like Ethernet or Wi-Fi)
+
+• `A connection between devices` - It consists of messages:SYN ( initial message sent by the client),SYN/ACK (acknowledge) sent by the receiver to acknowledge the synchronisation attempt,ACK - The acknowledgement packet can be used by either the client or server to acknowledge that a series of messages/packets have been successfully received,DATA-data (such as bytes of a file) is sent via the "DATA" message,FIN-close a connection,RST- this packet abruptly ends all communication
+
+• `The-three-way-handshake` - a process that establishes a connection between both devices that wish to communicate.It consists of the messages SYN,SYN/ACK and ACK(in order)
+
+• `End of an TCP connection` - consists of the messages FIN,ACK,FIN,ACK(ir order)
+
+• I might use non-standard ports for development, testing, permissions, or running multiple apps ,i just need to add `:` for example https://example.com:1234 (using 1234 instead of the default port of https which is 443),if i were to use the standard one so i simply write https://example.com 
