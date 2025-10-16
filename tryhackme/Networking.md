@@ -72,9 +72,9 @@ In a 5 layer model ,it's in the application layer.
 
 • `MAC` -Media access control,a physical network interface, which is a microchip board found on the device's motherboard
 
-• `Switch` - device within a network that are designed to aggregate multiple other networking-capable devices using ethernet.When it receives a packet, instead of repeating that packet to every port like a hub would do, it just sends it to the intended target, thus reducing network traffic. Switches can connect a large number of devices by having ports of 4, 8, 16, 24, 32, 64 etc for devices to plug into.Switches and Routers can be connected to one another
+• `Switch` - device within a network that are designed to aggregate multiple other networking-capable devices using ethernet.When it receives a packet, instead of repeating that packet to every port like a hub would do, it just sends it to the intended target, thus reducing network traffic. Switches can connect a large number of devices by having ports of 4, 8, 16, 24, 32, 64 etc for devices to plug into.They use MAC addresses to forward data within the same local network (LAN).Switches and Routers can be connected to one another
 
-• `Router` - a device that connects networks and passes data between them
+• `Router` - a device that connects networks and passes data between them.Operates in the network layer and uses IPs.I can log in to the router using a web browser (like typing an IP address) or a command-line console.Through this interface, I can change settings and set up rules for how the router behaves.
 
 • `Network address` - The portion of an IP address used to identify the network segment (consists of the most significant bits)
 
@@ -103,6 +103,17 @@ It sits between networks (e.g., between your LAN and the Internet) or sometimes 
 It checks packets using rules based on:IP addresses,Ports and protocols (meaning it operates on network and transport layers ).
 
 • `stateless firewall` -(static) it looks at each packet individually.It doesn’t remember anything about previous packets.It makes decisions only based on static rules, like:Source IP
-,Destination IP,Port number,Protocol (TCP/UDP)
+,Destination IP,Port number,Protocol (TCP/UDP).these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)
 
 • `stateful firewall` - (dynamic) tracks the state of each connection (like TCP handshakes).It keeps a state table to remember active sessions.It understands:Which connections are new, established, or related. Also understands whether a packet belongs to an existing session.
+
+• `VPN` - virtual private network.It's like a secure, private tunnel through the internet.Offers privacy and IP masking,allows networks in different geographical locations to be connected.
+Encrypts your internet traffic,hides your IP address and location,lets you access region-locked content (like watching U.S. Netflix from Europe),protects your data on public Wi-Fi.example: DNS are usually unencrypted (even if i use https) but using a vpn encrypts the DNS.
+
+• `PPP` - This technology is used by PPTP (explained below) to allow for authentication and provide encryption of data. VPNs work by using a private key and public certificate (similar to SSH). A private key & certificate must match for you to connect.
+
+This technology is not capable of leaving a network by itself (non-routable).
+
+• `PPTP` - The Point-to-Point Tunneling Protocol is the technology that allows the data from PPP to travel and leave a network. PPTP is very easy to set up and is supported by most devices. It is, however, weakly encrypted in comparison to alternatives.
+
+• `IPsec` - 	Internet Protocol Security encrypts data using the existing Internet Protocol framework.IPSec is difficult to set up in comparison to alternatives; however, if successful, it boasts strong encryption and is also supported on many devices.
