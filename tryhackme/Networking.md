@@ -20,7 +20,7 @@ For UDP the headers are: source and destination port,source and destination IP,c
 • `UDP` - User Datagram Protocol,a transport layer protocol that is stateless(doesn't need a constant connection between the 2 devices) and does not guarantee delivery, order, or error checking like TCP.
 It’s useful in scenarios where speed is more important than reliability, such as live streaming, online gaming, VoIP (e.g., Zoom), or protocols like DHCP and DNS.
 
-• `DNS` - Domain Name System, a protocol dictating how website addresses are translated into IP addresses.
+• `DNS` - Domain Name System, a protocol dictating how website addresses are translated into IP addresses. multiple types of DNS record exist,for example: MX record (Specifies where to deliver email for the domain (Mail eXchange)),A record ( resolve to IPv4 addresses), AAAA record( resolve to IPv6 addresses),CNAME record(A canonical name record that points one domain or subdomain to another domain name, for example, TryHackMe's online shop has the subdomain name store.tryhackme.com which returns a CNAME record shops.shopify.com.),TXT record (free text fields where any text-based data can be stored.Can be used for example SPF records to list which servers are allowed to send email on behalf of a domain (helps fight spam and spoofing) or domain verification for services like Google or Microsoft).A DNS request consists of: firstly my local cache is checked to see if i've looked up the address reently,if not a request to my recursive DNS server is made (which is usually provided by  my ISP),it also has a local cache and if the result of the domain name I'm looking for is thre,the answer is sent to my own cache(names like youtube,twitter,google are common to find here).If domain isn't found even in the recursive server, the request passes to the internet's root DNS server (redirect me to the correct Top Level Domain Server).The TLD server holds records for where to find the authoritative server to answer the DNS request. The authoritative server is often also known as the nameserver for the domain. For example, the name server for tryhackme.com is kip.ns.cloudflare.com and uma.ns.cloudflare.com.Then it's the authoratative DNS server ( which holds all the records for a domain)that gives us our answer and then the DNS record is sent back to the Recursive DNS Server, where a local copy will be cached for future requests and then relayed back to the original client that made the request. DNS records all come with a TTL (Time To Live) value.
 
 • `HTTP` -  HyperText Transfer Protocol ,the protocol my web browser uses to request and receive web pages from servers
 
@@ -36,8 +36,10 @@ It’s useful in scenarios where speed is more important than reliability, such 
     -ping 8.8.8.8
     -ping google.com
 
-
-
+• `nslookup` - command-line tool used to query DNS records for a domain. 
+##### ✏️examples:
+    -nslookup -type=CNAME google.com
+    -nslookup -type=TXT google.com
 
 # 🖧 **Topologies**
 • `Star topology` - devices are connected via a central networking device such as a switch or hub. This topology is the most commonly found today because of its reliability and scalability (costs a lot compared to other topologies)
@@ -72,7 +74,7 @@ In a 5 layer model ,it's in the application layer.
 
 • `MAC` -Media access control,a physical network interface, which is a microchip board found on the device's motherboard
 
-• `Switch` - device within a network that are designed to aggregate multiple other networking-capable devices using ethernet.When it receives a packet, instead of repeating that packet to every port like a hub would do, it just sends it to the intended target, thus reducing network traffic. Switches can connect a large number of devices by having ports of 4, 8, 16, 24, 32, 64 etc for devices to plug into.They use MAC addresses to forward data within the same local network (LAN).Switches and Routers can be connected to one another
+• `Switch` - Used in the data link layer.It's a device within a network that are designed to aggregate multiple other networking-capable devices using ethernet.When it receives a packet, instead of repeating that packet to every port like a hub would do, it just sends it to the intended target, thus reducing network traffic. Switches can connect a large number of devices by having ports of 4, 8, 16, 24, 32, 64 etc for devices to plug into.They use MAC addresses to forward data within the same local network (LAN).Switches and Routers can be connected to one another.🔸note:a switch maintains a MAC address table (also called a CAM table) that maps each device’s MAC address to the switch physical (or wireless) port it is connected to.
 
 • `Router` - a device that connects networks and passes data between them.Operates in the network layer and uses IPs.I can log in to the router using a web browser (like typing an IP address) or a command-line console.Through this interface, I can change settings and set up rules for how the router behaves.
 
@@ -117,3 +119,9 @@ This technology is not capable of leaving a network by itself (non-routable).
 • `PPTP` - The Point-to-Point Tunneling Protocol is the technology that allows the data from PPP to travel and leave a network. PPTP is very easy to set up and is supported by most devices. It is, however, weakly encrypted in comparison to alternatives.
 
 • `IPsec` - 	Internet Protocol Security encrypts data using the existing Internet Protocol framework.IPSec is difficult to set up in comparison to alternatives; however, if successful, it boasts strong encryption and is also supported on many devices.
+
+• `IANA` - IANA.org is the website for the Internet Assigned Numbers Authority, the organization that manages IP addresses, port numbers, DNS root zones, and other core internet identifiers.
+
+• `Domanin hierarchy` -
+ A. `TLD ` (Top-Level Domain) which is divided into 2 types:gTLD (Generic Top Level) and ccTLD (Country Code Top Level Domain).gTLD was meant to tell the user the domain name's purpose; for example, a .com would be for commercial purposes, .org for an organisation, .edu for education and .gov for government. ccTLD was used for geographical purposes, for example, .ca for sites based in Canada, .co.uk for sites based in the United Kingdom.B. `Second-level-domain ` : Taking tryhackme.com as an example, the .com part is the TLD, and tryhackme is the Second Level Domain ,limited to 63 characters + the TLD and can only use a-z 0-9 and hyphens (cannot start or end with hyphens or have consecutive hyphens). 
+ C. `Subdomain` -  in the name admin.tryhackme.com the admin part is the subdomain. A subdomain name has the same creation restrictions as a Second-Level Domain, being limited to 63 characters and can only use a-z 0-9 and hyphens (cannot start or end with hyphens or have consecutive hyphens). You can use multiple subdomains split with periods to create longer names, such as jupiter.servers.tryhackme.com. But the length must be kept to 253 characters or less. There is no limit to the number of subdomains you can create for your domain name.
