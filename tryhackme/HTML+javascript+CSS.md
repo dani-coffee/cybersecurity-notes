@@ -1,4 +1,4 @@
-# 📄 cheat sheet
+# 📄 HTML cheat sheet
 
 | Element       | Description                          | Example |
 |---------------|--------------------------------------|---------|
