@@ -94,7 +94,7 @@
 
 ---
 
-• ` CDN (Content Delivery Networks)` - system of distributed servers located in many different places around the world. Its job is to deliver web content (like images, videos, scripts, stylesheets) to users faster and more reliably. Problrm: If the server is far away from you, the files take longer to arrive, slowing down the website. CDN solves it by: Storing copies of these files on servers closer to me geographically,Delivering the files from the nearest server, speeding up the loading time,Handling lots of traffic better, improving availability and reliability
+• Problem: If the server is far away from me, the files take longer to arrive, slowing down the website.Solution: `CDN (Content Delivery Networks)` - system of distributed servers located in many different places around the world. Its job is to deliver web content (like images, videos, scripts, stylesheets) to users faster and more reliably.What it does: Stores copies of these files on servers closer to me geographically,Delivers the files from the nearest server, speeds up the loading time,Handles lots of traffic better, improves availability and reliability
 
  --- 
  
