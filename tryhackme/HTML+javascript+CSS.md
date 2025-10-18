@@ -21,8 +21,8 @@
 | `<div>`       | Block container (for layout/styling) | `<div>Content</div>` |
 | `<span>`      |highlighter  | `<p>This is a <span style="color: red;">red word</span> in a sentence.</p>` |
 | `<form>`      | For user input forms                 | `<form> <label>Your name:</label> <input type="text" name="username"> <button type="submit">Submit</button> </form>` |
-
-
+| `<!-- ... -->`  | block of comments | `<!--  TODO:    Remove test credentials!     Username: admin     Password: testpasswd     -->` |
+| `getElementById` |` a JavaScript method used to find an HTML element on the page by its unique id attribute | `if i have in html:  <p id="demo">Original text</p> <script> //then i cqan get the element with id 'demo' and change its text document.getElementById("demo").innerHTML = "Hello, world!"; </script>` |
 
 ###  ✏️example
     <!DOCTYPE html>
@@ -72,3 +72,38 @@
         </script>
       </body>
     </html>
+
+---
+
+# 🧠 **Additional notes**
+
+
+• `JavaScript` is added within the page source code and can be either loaded within <script> tags or can be included remotely with the src attribute
+
+| Method                          | Description                                                                 | Example Code |
+|----------------------------------|------------------------------------------------------------------------------|--------------|
+| **1. Inline (Directly in HTML)** | JavaScript is written inside the HTML file using `<script>` tags. | `<script>alert("Hello, world!");</script>` |
+| **2. External JavaScript File**  | JavaScript is in a separate `.js` file and linked via `src`. | `<script src="script.js"></script>` |
+
+
+---
+
+• `HTML injection` - Inserting attacker-supplied HTML tags into a page. The injected HTML may only change how the page looks (e.g., add links or formatting) or it may enable script execution (XSS) depending on what is allowed and how the page handles the input.
+#####  ✏️example:
+    Username: <a href = "http://hacker.com"> diana </a>
+
+---
+
+• ` CDN (Content Delivery Networks)` - system of distributed servers located in many different places around the world. Its job is to deliver web content (like images, videos, scripts, stylesheets) to users faster and more reliably. Problrm: If the server is far away from you, the files take longer to arrive, slowing down the website. CDN solves it by: Storing copies of these files on servers closer to me geographically,Delivering the files from the nearest server, speeding up the loading time,Handling lots of traffic better, improving availability and reliability
+
+ --- 
+ 
+• `Databases` - like a digital storage system that helps I store, organize, and manage data — basically information — so I can easily retrieve and use it later.Relational databases(use of rows and colums) common examples: MySQL, PostgreSQL, SQLite, Microsoft SQL Server. Nosql(other formats like documents,graphs are used to store data) common examples: MongoDB, Redis, Cassandra
+
+---
+
+• `WAF (web application firewall)` - a security tool that protects web applications (websites or online services) by filtering and monitoring HTTP traffic between the internet and the web app
+blocks or filters out malicious traffic that tries to exploit security vulnerabilities, like hackers trying to inject harmful code or perform attacks. Helps prevent attacks such as: 
+1. SQL Injection (bad code trying to mess with my database)
+2.  Cross-Site Scripting (XSS) (injecting malicious scripts into web pages)
+3.  Cross-Site Request Forgery (CSRF)
