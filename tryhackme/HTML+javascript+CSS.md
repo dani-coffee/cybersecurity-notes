@@ -107,3 +107,17 @@ blocks or filters out malicious traffic that tries to exploit security vulnerabi
 1. SQL Injection (bad code trying to mess with my database)
 2.  Cross-Site Scripting (XSS) (injecting malicious scripts into web pages)
 3.  Cross-Site Request Forgery (CSRF)
+
+---
+
+• order of how a request to a website works - 
+1. request of a website in my browser
+2. check local Cache for IP of that website (if found,done)
+3. check recursive cache for that IP address (if found,sends it to local cache,done)
+4. the DNS server queries the root server to find authorotative DNS server
+5. request passes through WAF
+6. request goes through Load balancer
+7. Connection on port ( 80 HTTP and 443 HTTPS)
+8. WEB server receives the GET request
+9. Web application talk to database
+10. The browser interprets the HTML and turns it into a visual webpage
