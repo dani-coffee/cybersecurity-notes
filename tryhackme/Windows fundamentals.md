@@ -33,6 +33,26 @@
 
 ---
 
+• `UAC` (  User Account Control) - When a task requires administrator-level permission (like installing software or changing system settings), UAC:
+1. Pauses the operation
+2. Asks for confirmation (or admin credentials if you're on a standard account)
+3.  Displays a popup, usually dimming the screen, with options like: "Do you want to allow this app to make changes to your device?"
+
+---
+
+• ` Task Manager` -  a built-in Windows tool that lets you monitor and manage running processes, programs, and system performance.
+1. View running apps and background processes
+2. End (kill) unresponsive programs
+3. Check CPU, memory, disk, and network usage
+4. Manage startup programs
+5. See user activity
+6. Monitor GPU performance
+
+
+---
+
+
+
 • Some examples in CMD and Powershell
 
 | Concept                          | Description                                       | Example Command                                        | What It Does                                     |
@@ -43,3 +63,10 @@
 | ADS (hidden stream)              | Add hidden stream to a file                       | `echo Secret > file.txt:hidden`                        | Adds hidden data to the file                     |
 | Read hidden stream               | View content of the hidden stream                 | `more < file.txt:hidden`                               | Displays hidden text from ADS                    |
 | View streams with PowerShell     | See all data streams, including `$DATA`           | `powershell -command "Get-Item file.txt -Stream *"`    | Shows main and hidden `$DATA` streams            |
+
+---
+
+# ⌨️ **Keyboard useful combinations**
+
+• lusrmgr.msc      ➝ Opens the Local Users and Groups Manager (available on Pro & higher editions)
+• ctrl+shift+esc      ➝ opens task manager
