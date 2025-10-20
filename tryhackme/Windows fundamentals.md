@@ -70,3 +70,8 @@
 
 • lusrmgr.msc      ➝ Opens the Local Users and Groups Manager (available on Pro & higher editions)
 • ctrl+shift+esc      ➝ opens task manager
+• win + r + taskmgr           ➝ opens task manager
+• win + r +UserAccountControlSettings       ➝ opens UAC
+• win + compmgmt      ➝ opens computer managment ( contains UAC for example,task scheduler , Local Users and Groups Manager etc...)
+• win + perfmon      ➝ opens performance monitor
+• win + msinfo32      ➝opens system information
