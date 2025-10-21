@@ -51,18 +51,32 @@
 
 ---
 
+• Some examples in CMD 
+
+| Command                             | Description |
+|-------------------------------------|-------------|
+| `hostname`                          | Shows the **name of the computer** |
+| `whoami`                            | Displays the **logged-in user's name** |
+| `ipconfig`                          | Shows a **summary of current IP configuration** for each network adapter |
+| `netstat`                           | Displays **network connections, routing tables, port activity** |
+|                                     | ▸ `-a` → All connections (incoming + listening), but no program info |
+|                                     | ▸ `-b` → Binaries (shows the program/executable using each connection) |
+|                                     | ▸ `-e` → Ethernet statistics (bytes sent/received, errors) |
+|                                     | ▸ `-an` → All numeric (IP addresses and ports only, no DNS) |
+| `net`                               | Manage **network resources and configuration** |
+|                                     | ▸ `user` → Manage local user accounts |
+|                                     | ▸ `localgroup` → Manage local groups |
+|                                     | ▸ `session` → View active sessions (when file sharing is enabled) |
+|                                     | ▸ `start` / `stop` → Start or stop Windows services |
+| `echo %windir%`                     | Displays the value of the `%windir%` environment variable (Windows folder) |
+| `start %windir%\notepad.exe`        | Launches Notepad from the Windows directory |
+| `echo Hello > file.txt`             | Writes the text "Hello" to a visible file |
+| `echo Secret > file.txt:hidden`     | Writes hidden content to an alternate data stream |
+| `more < file.txt:hidden`            | Reads hidden content from an alternate data stream |
 
 
-• Some examples in CMD and Powershell
 
-| Concept                          | Description                                       | Example Command                                        | What It Does                                     |
-|----------------------------------|---------------------------------------------------|--------------------------------------------------------|--------------------------------------------------|
-| `%windir%`                       | Windows folder (usually `C:\Windows`)             | `echo %windir%`                                        | Shows the Windows folder path                    |
-| `%windir%`                       | Run Notepad using Windows path                    | `start %windir%\notepad.exe`                           | Opens Notepad                                    |
-| Normal file content              | Create a visible file with text                   | `echo Hello > file.txt`                                | Creates a file with visible text                 |
-| ADS (hidden stream)              | Add hidden stream to a file                       | `echo Secret > file.txt:hidden`                        | Adds hidden data to the file                     |
-| Read hidden stream               | View content of the hidden stream                 | `more < file.txt:hidden`                               | Displays hidden text from ADS                    |
-| View streams with PowerShell     | See all data streams, including `$DATA`           | `powershell -command "Get-Item file.txt -Stream *"`    | Shows main and hidden `$DATA` streams            |
+•adding /? after a command retrieves help manual for that command
 
 ---
 
@@ -81,3 +95,7 @@
 • win + perfmon      ➝ opens performance monitor
 
 • win + msinfo32      ➝opens system information
+
+• win + resmon      ➝opens resource monitor "includes a process analysis feature that can help identify deadlocked processes and file locking conflicts so that the user can attempt to resolve the conflict " - Microsoft
+
+• win + cmd      ➝opend command prompt
