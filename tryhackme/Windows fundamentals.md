@@ -51,34 +51,47 @@
 
 ---
 
+• `BitLocker` is a full‑disk encryption feature built into certain editions of the Microsoft Windows operating system. 
+ It is designed to protect data on a drive by encrypting the entire volume so that the data cannot be read without proper authentication or the correct encryption key.
+ 
+---
+
+• `Shadow copies` - point‑in‑time snapshots of a disk volume (or shared folder) that capture the state of files and folders at a specific moment in time. 
+They allow me to restore previous versions of files or folders, or recover files that were deleted or overwritten, by going back to an earlier “snapshot” state. 
+They aso allow fast recovery from malware/ransomware: If a system is hit with ransomware, having shadow copies can allow you to revert files/folders to pre‑infection states — assuming the snapshots weren’t deleted by the attacker. Many ransomware strains attempt to delete or disable shadow copies before encryption.
+
+---
+
+
 • Some examples in CMD 
 
-| Command                             | Description |
-|-------------------------------------|-------------|
-| `hostname`                          | Shows the **name of the computer** |
-| `whoami`                            | Displays the **logged-in user's name** |
-| `ipconfig`                          | Shows a **summary of current IP configuration** for each network adapter |
-| `netstat`                           | Displays **network connections, routing tables, port activity** |
-|                                     | ▸ `-a` → All connections (incoming + listening), but no program info |
-|                                     | ▸ `-b` → Binaries (shows the program/executable using each connection) |
-|                                     | ▸ `-e` → Ethernet statistics (bytes sent/received, errors) |
-|                                     | ▸ `-an` → All numeric (IP addresses and ports only, no DNS) |
-| `net`                               | Manage **network resources and configuration** |
-|                                     | ▸ `user` → Manage local user accounts |
-|                                     | ▸ `localgroup` → Manage local groups |
-|                                     | ▸ `session` → View active sessions (when file sharing is enabled) |
-|                                     | ▸ `start` / `stop` → Start or stop Windows services |
-| `echo %windir%`                     | Displays the value of the `%windir%` environment variable (Windows folder) |
-| `start %windir%\notepad.exe`        | Launches Notepad from the Windows directory |
-| `echo Hello > file.txt`             | Writes the text "Hello" to a visible file |
-| `echo Secret > file.txt:hidden`     | Writes hidden content to an alternate data stream |
-| `more < file.txt:hidden`            | Reads hidden content from an alternate data stream |
 
 
+| Command     | Description                                                  | Examples                                      |
+|-------------|--------------------------------------------------------------|-----------------------------------------------|
+| `hostname`  | Shows the **name of the computer**                           | `hostname`                                    |
+| `whoami`    | Displays the **logged-in user's name**                       | `whoami`                                      |
+| `ipconfig`  | Shows a **summary of current IP configuration**             | `ipconfig`                                    |
+| `netstat`                           | Displays **network connections, routing tables, port activity** |       |
+|                                     | ▸ `-a` → All connections (incoming + listening), but no program info |       |
+|                                     | ▸ `-b` → Binaries (shows the program/executable using each connection) |       |
+|                                     | ▸ `-e` → Ethernet statistics (bytes sent/received, errors) |       |
+|                                     | ▸ `-an` → All numeric (IP addresses and ports only, no DNS) |       |
+| `net`                               | Manage **network resources and configuration** |       |
+|                                     | ▸ `user` → Manage local user accounts |       |
+|                                     | ▸ `localgroup` → Manage local groups |       |
+|                                     | ▸ `session` → View active sessions (when file sharing is enabled) |       |
+|                                     | ▸ `start` / `stop` → Start or stop Windows services |       |
+| `echo`      | Displays messages or environment variables                   | `echo %windir%` `echo Hello > file.txt` `echo Secret > file.txt:hidden` |
+| `start`     | Launches a program or opens a file/folder                    | `start notepad` `start %windir%\notepad.exe` |
+| `more`      | Displays output one screen at a time                         | `more < file.txt` `more < file.txt:hidden`  |
+
+📝 Note:
 
 •adding /? after a command retrieves help manual for that command
 
 ---
+
 
 # ⌨️ **Keyboard useful combinations**
 
@@ -90,12 +103,16 @@
 
 • win + r +UserAccountControlSettings       ➝ opens UAC
 
-• win + compmgmt      ➝ opens computer managment ( contains UAC for example,task scheduler , Local Users and Groups Manager etc...)
+• win +r + compmgmt      ➝ opens computer managment ( contains UAC for example,task scheduler , Local Users and Groups Manager etc...)
 
-• win + perfmon      ➝ opens performance monitor
+• win + r + perfmon      ➝ opens performance monitor
 
-• win + msinfo32      ➝opens system information
+• win + r + msinfo32      ➝opens system information
 
-• win + resmon      ➝opens resource monitor "includes a process analysis feature that can help identify deadlocked processes and file locking conflicts so that the user can attempt to resolve the conflict " - Microsoft
+• win + r + resmon      ➝opens resource monitor "includes a process analysis feature that can help identify deadlocked processes and file locking conflicts so that the user can attempt to resolve the conflict " - Microsoft
 
-• win + cmd      ➝opend command prompt
+• win + r + cmd      ➝opens command prompt
+
+•win+ r + regedt32      ➝ opens the Windows Registry which is a centralized, hierarchical database used by the Microsoft Windows operating system to store low-level settings and configurations for both the OS and installed applications.Because the registry is so central to system operation, editing it incorrectly can cause serious problems (system instability, inability to start Windows, etc).
+
+•win+ r + wf.msc      ➝opens windows firewall
