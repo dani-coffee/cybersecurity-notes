@@ -62,6 +62,10 @@ They aso allow fast recovery from malware/ransomware: If a system is hit with ra
 
 ---
 
+• `Active Directory (AD)` -  a directory service made by Microsoft that helps manage users, computers, and other devices on a Windows network.It manages user accounts (who can log in),manages computers on the network,controls permissions & access (who can do what),organizes everything in a hierarchical structure.it’s a service that runs on a special computer called a Domain Controller (DC).
+
+---
+
 
 • Some examples in CMD 
 
