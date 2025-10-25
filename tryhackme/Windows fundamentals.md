@@ -62,9 +62,13 @@ They aso allow fast recovery from malware/ransomware: If a system is hit with ra
 
 ---
 
-• `Active Directory (AD)` -  a directory service made by Microsoft that helps manage users, computers, and other devices on a Windows network.It manages user accounts (who can log in),manages computers on the network,controls permissions & access (who can do what),organizes everything in a hierarchical structure.it’s a service that runs on a special computer called a Domain Controller (DC).
+• `Active Directory (AD)` -  a directory service made by Microsoft that helps manage users, computers, and other devices on a Windows network.It manages user accounts (who can log in),manages computers on the network,controls permissions & access (who can do what),organizes everything in a hierarchical structure.it’s a service that runs on a special computer called a Domain Controller (DC).Active Directory lets me centralize control of users, computers, and services — everything that needs to authenticate or follow security rules can join the domain.Every domain-joined machine has its own identity in AD — a machine account (with $ in the end) and a 120-character random password that rotates automatically for security.
+`Security Groups` are objects stored inside AD.A `Security Group` in Active Directory (AD) A Security Group is a collection of users, computers, or other groups
+used to assign permissions to resources (like folders, printers, or apps)..Instead of giving permissions to each person or computer one by one,I give them to a group, and everyone inside automatically inherits them. For example Backup Operators is a built-in Security Group in Windows and Active Directory (Members of this group have special permissions that let them back up and restore files,even if they normally wouldn’t have access to those files).An `Organizational Unit (OU)` is like a folder inside Active Directory.It’s used to organize and manage AD objects — such as users, computers, and groups — in a logical way. `Group Policy`  is a feature of Active Directory (AD) that lets administrators control settings on computers and user accounts across the network — automatically. Instead of manually configuring each PC (like setting wallpaper, password rules, or software),I define those settings once in a Group Policy Object (GPO) and AD applies them for me.
+ 
 
 ---
+
 
 
 • Some examples in CMD 
