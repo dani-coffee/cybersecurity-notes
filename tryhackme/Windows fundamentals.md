@@ -150,11 +150,49 @@ used to assign permissions to resources (like folders, printers, or apps)..Inste
 | `shutdown /s`| shuts down a system | `shutdown /s` |
 | `shutdown /r`| restarts a system | `shutdown /r` |
 | `shutdown /l`| Log off the current user | `shutdown /l` |
+| `powershell`| Launches powershell, as we will see PS in the beginning of the next command line | `powershell` |
 
 
 📝 Note:
 
 •adding /? after a command retrieves help manual for that command
+
+---
+
+• Some examples in Powershell
+
+| Command     | Description                                                  | Examples                                      |
+|-------------|--------------------------------------------------------------|-----------------------------------------------|
+| `hostname`  | Shows the **name of the computer**                           | `hostname`                                    |
+| `Get-Command`  | find all available commands on your system — including cmdlets, functions, aliases, scripts, and executable programs. | `Get-Command` ,` Get-Command -CommandType "Function"`, ` Get-Command -Name "Remove*" ` |
+| `Get-Help`  | displays help information about commands, concepts, and features in PowerShell.| `Get-Help Get-Date`  |
+| `Get-Alias`  |shows me the aliases currently defined in my PowerShell session,for example ls → alias for Get-ChildItem | `Get-Alias`  |
+| `Set-Location -Path`  |Navigates to the specified directory or location (similar to cd in Linux/Ubuntu) | `Set-Location -Path ".\Documents"`  |
+| `New-Item`  |create a new item — such as a file, folder, registry key, etc. (similar to touch/mkdir in Linux/Ubuntu) | `New-Item -Path ".\captain-cabin\captain-wardrobe\captain-boots.txt" -ItemType "File"`  |
+| `Get-ChildItem`  | lists the contents of a location — such as files and folders in a directory. (ls is Linux, dir in cmd)| ` Get-ChildItem -Path C:\Users`  |
+| `Sort-Object`  | used to sort PowerShell objects (like files, processes, numbers, text, etc.) based on one or more of their properties. | `  Sort-Object Length`  |
+| `Where-Object`  |filtering cmdlet. It lets me select objects from a collection based on a condition I specify |   |
+|                                     | ▸ `-eq` → equal |       |
+|                                     | ▸ `-ne` → not equal |       |
+|                                     | ▸ `-gt` → greater than |       |
+|                                     | ▸ `-ge` → greater than or equal to |       |
+|                                     | ▸ `-lt` → less than |       |
+|                                     | ▸ `-le` → less than or equal to |       |
+|                                     | ▸ `-like` → allows wildcards (*, ?) for pattern matching. |       |
+
+
+more useful examples:
+1. `1, 5, 3, 2 | Sort-Object`
+2. `Get-ChildItem | Sort-Object Length -Descending`
+3. ` Get-ChildItem | Where-Object -Property "Extension" -eq ".txt"  `
+4. `Get-ChildItem | Where-Object -Property "Name" -like "ship*" `
+
+
+
+
+
+
+
 
 ---
 
@@ -182,3 +220,4 @@ used to assign permissions to resources (like folders, printers, or apps)..Inste
 •win+ r + regedt32      ➝ opens the Windows Registry which is a centralized, hierarchical database used by the Microsoft Windows operating system to store low-level settings and configurations for both the OS and installed applications.Because the registry is so central to system operation, editing it incorrectly can cause serious problems (system instability, inability to start Windows, etc).
 
 •win+ r + wf.msc      ➝opens windows firewall
+
