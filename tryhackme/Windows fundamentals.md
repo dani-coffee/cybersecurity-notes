@@ -170,8 +170,8 @@ used to assign permissions to resources (like folders, printers, or apps)..Inste
 | `Set-Location -Path`  |Navigates to the specified directory or location (similar to cd in Linux/Ubuntu) | `Set-Location -Path ".\Documents"`  |
 | `New-Item`  |create a new item — such as a file, folder, registry key, etc. (similar to touch/mkdir in Linux/Ubuntu) | `New-Item -Path ".\captain-cabin\captain-wardrobe\captain-boots.txt" -ItemType "File"`  |
 | `Get-ChildItem`  | lists the contents of a location — such as files and folders in a directory. (ls is Linux, dir in cmd)| ` Get-ChildItem -Path C:\Users`  |
-| `Sort-Object`  | used to sort PowerShell objects (like files, processes, numbers, text, etc.) based on one or more of their properties. | `  Sort-Object Length`  |
-| `Where-Object`  |filtering cmdlet. It lets me select objects from a collection based on a condition I specify |   |
+| `Sort-Object` , `sort`  | used to sort PowerShell objects (like files, processes, numbers, text, etc.) based on one or more of their properties. | `  Sort-Object Length`  |
+| `Where-Object` ,`where` ,`?`   |filtering cmdlet. It lets me select objects from a collection based on a condition I specify |   |
 |                                     | ▸ `-eq` → equal |       |
 |                                     | ▸ `-ne` → not equal |       |
 |                                     | ▸ `-gt` → greater than |       |
@@ -179,7 +179,11 @@ used to assign permissions to resources (like folders, printers, or apps)..Inste
 |                                     | ▸ `-lt` → less than |       |
 |                                     | ▸ `-le` → less than or equal to |       |
 |                                     | ▸ `-like` → allows wildcards (*, ?) for pattern matching. |       |
-
+| ` Select-String`   |searches for text patterns (like words, phrases, or regex patterns) inside files or command output, similar to how grep works in Linux. | `Select-String -Path "notes.txt" -Pattern "error"` , `Select-String -Path ".\captain-hat.txt" -Pattern "hat"`   |
+| `Get-ComputerInfo `  |retrieves detailed information about my computer and operating system | `Get-ComputerInfo`  |
+| `Get-LocalUser `  |lists all the local user accounts on my computer | `Get-LocalUser `  |
+| `Get-NetIPAddress `  |shows all IP address configuration details on your computer — both IPv4 and IPv6 addresses for all network adapters. | `Get-NetIPAddress`  |
+| `Get-Content `  |reads the contents of a file and displays them line by line —just like cat in Linux or type in  CMD. | `Get-Content file1.txt `  |
 
 more useful examples:
 1. `1, 5, 3, 2 | Sort-Object`
