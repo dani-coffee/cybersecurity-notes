@@ -184,6 +184,16 @@ used to assign permissions to resources (like folders, printers, or apps)..Inste
 | `Get-LocalUser `  |lists all the local user accounts on my computer | `Get-LocalUser `  |
 | `Get-NetIPAddress `  |shows all IP address configuration details on your computer — both IPv4 and IPv6 addresses for all network adapters. | `Get-NetIPAddress`  |
 | `Get-Content `  |reads the contents of a file and displays them line by line —just like cat in Linux or type in  CMD. | `Get-Content file1.txt `  |
+| `Get-Process `  |shows all the processes currently running on my computer | `Get-Process`  |
+| `Get-Service `  |lists all Windows services that are registered with the Service Control Manager (SCM) — that’s the system that manages Windows services. | `Get-Service`  |
+| `Get-NetTCPConnection`  |shows all active TCP network connections on my computer. | `Get-NetTCPConnection`  |
+| `Get-NetUDPEndpoint`  |shows all active UDP network connections on my computer. | `Get-NetUDPEndpoint`  |
+| `Get-FileHash`  |calculates a cryptographic hash value (checksum) for a file. | `Get-FileHash`  |
+| `Invoke-Command`  |lets me execute PowerShell code locally or remotely, and get the results back in my current session. | `Invoke-Command -ScriptBlock { Get-Process }` , `Invoke-Command -ComputerName "Server01" -ScriptBlock { Get-Service }`  |
+
+
+
+
 
 more useful examples:
 1. `1, 5, 3, 2 | Sort-Object`
