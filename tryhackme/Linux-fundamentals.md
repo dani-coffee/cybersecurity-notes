@@ -130,6 +130,13 @@ MIN	What minute to execute at,HOUR	What hour to execute at,DOM	What day of the m
 
  • `history` - list of all the commands I’ve previously run in my shell session 
 
+• `telnet` - old network protocol and command-line tool used to connect to remote computers over TCP (like SSH does today).
+##### ✏️examples: 
+	telnet 10.10.34.40 7	➝echo server
+	10.10.34.40 13	➝daytime server
+	telnet 10.10.34.40 80  then I add GET / HTTP/1.1 and Host: telnet.thm	➝web server
+
+
 
 # 🚩 **Flags**
 
