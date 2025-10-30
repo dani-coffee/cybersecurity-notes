@@ -330,3 +330,11 @@ A URL (Uniform Resource Locator) tells the browser how and where to access a res
 |-----------|---------------------------------------------|
 | Low TTL   | More frequent updates, less caching         |
 | High TTL  | Faster lookups, but may serve outdated data |
+
+
+
+•  three ranges of private IP addresses (according to RFC 1918) :
+
+    10.0.0.0 - 10.255.255.255 (10/8)
+    172.16.0.0 - 172.31.255.255 (172.16/12)
+    192.168.0.0 - 192.168.255.255 (192.168/16)
