@@ -15,10 +15,12 @@
 
 • `echo` - prints an output to the terminal (adds automatically a newline in the end of a line,unless i add the flag -n)
 #####  ✏️examples:
-        -echo Hello world!    ➝ prints Hello world!
-        -echo file1.txt
-        -echo hi! > file1.txt
-        -echo hi! >> file1.txt 
+        - echo Hello world!    ➝ prints Hello world!
+        - echo file1.txt
+        - echo hi! > file1.txt
+        - echo hi! >> file1.txt 
+		- echo $SHELL	➝prints which shell I'm using
+		
         
 • `touch`-creating a new file
 #####  ✏️examples:
@@ -51,11 +53,13 @@
 • `cat` -prints the contents of the inserted file
 #####   ✏️examples:
             -cat file1.txt
-            -cat ~/Desktop/file1.txt    ➝ I don't have to use cd to enter to the directory containing the file I want to print,I can just insert the parh adter using                cat
+            -cat ~/Desktop/file1.txt    ➝ I don't have to use cd to enter to the directory containing the file I want to print,I can just insert the parh adter using cat
+			- cat etc/shells	➝prints all the available shells on my linux OS
 
 • `nano` - edit file in terminal (easiest way for now click ctrl+O to save,enter,then ctrl+X to exit)
 #####   ✏️examples:
         -nano file1.txt
+		nano first_script.sh
        
 • `pwd` - shows full path to the current directory
 
@@ -119,6 +123,12 @@
 MIN	What minute to execute at,HOUR	What hour to execute at,DOM	What day of the month to execute at,MON	What month of the year to execute at,DOW What day of the week to execute at,CMD The actual command that will be executed. `*` stands for-every
 ##### ✏️examples: 
 	-0 */12 * * * cp -R /home/cmnatic/Documents /var/backups/	➝backup "cmnatic"'s  "Documents" every 12 hours
+
+ • `chsh` - a command that lets you change your default login shell
+##### ✏️examples: 
+	chsh -s /usr/bin/zsh
+
+ • `history` - list of all the commands I’ve previously run in my shell session 
 
 
 # 🚩 **Flags**
@@ -222,3 +232,39 @@ When I add a PPA to my system, I'm saying: “Hey APT, also check this new place
 	-sudo add-apt-repository --remove ppa:webupd8team/sublime-text-3	➝remove the repository pps webupd8team
 
 •GPG (Gnu Privacy Guard) is based on asymmetric cryptography.It's a tool for cryptographic signing and verification.It ensures that software packages or repositories I download are authentic and haven’t been tampered with.When I run apt update or apt install, APT checks the digital signature on packages against the GPG key.If the signature matches, APT trusts the package and installs it.
+
+
+•Some examples of scripting using bash on the file i created called first_script.sh :
+
+	1. 
+	#Defining the Interpreter 
+	 #!/bin/bash
+	 echo "Hey, what’s your name?"
+	read name
+	echo "Welcome, $name" 
+
+
+
+	2. 
+	#Defining the Interpreter 
+	#!/bin/bash
+	for i in {1..5};
+	do
+	echo $i
+	done   
+
+	
+	 
+	 3.
+	 # Defining the Interpreter 
+	#!/bin/bash
+	echo "Please enter your name first:"
+	read name
+	if [ "$name" = "Dani" ]; then
+	        echo "Welcome Dani! "
+	else
+	        echo "Sorry! You are not authorized yo be here!"
+	fi 
+
+
+Then I have to use `chmod +x first_script.sh` to make it executable.I run it with `./first_script.sh`
