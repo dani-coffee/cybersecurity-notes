@@ -10,11 +10,11 @@ To connect to a Linux machine remotely I can use :
 
 ---
 
-• `ARP` - allows a device to associate its MAC address with an IP address on the network.Consists of an ARP request that sends a broadcast message to the LAN devices asking what is the MAC of the Ip I'm looking for and an ARP reply in which the device returns its MAC.The mapping is stored in the ARP cache of the requesting device
+• `ARP` - allows a device to associate its MAC address with an IP address on the network.Consists of an ARP request that sends a broadcast message to the LAN devices asking what is the MAC of the Ip I'm looking for and an ARP reply in which the device returns its MAC.The mapping is stored in the ARP cache of the requesting device.
 
 ---
 
-• `DHCP` - protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network . Steps: DORA. Discover(broadcast message to locate available DHCP servers),Offer( the DHCP server(can be a router) responds with an offer, including an available IP address and other config info.),Request(the requesting device responds with a request for the offered IP address),Accept(The DHCP server sends an acknowledgment, confirming the lease and assigning the IP address to the client)
+• `DHCP` - protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network . Steps: DORA. Discover(sends packets from the IP address 0.0.0.0 to broadcast IP address to locate available DHCP servers),Offer( the DHCP server(can be a router) responds with an offer, including an available IP address and other config info.),Request(the requesting device responds with a request for the offered IP address),Accept(The DHCP server sends an acknowledgment, confirming the lease and assigning the IP address to the client)
 
 ---
 
@@ -87,6 +87,9 @@ When you access a website, DNS follows these steps to resolve the domain name:
 ##### ✏️examples:
     -ping 8.8.8.8
     -ping google.com
+    -ping 192.168.11.1 -c 4       -c stands for counting how many packets to send before stopping
+
+    
 ---
     
 
@@ -95,6 +98,23 @@ When you access a website, DNS follows these steps to resolve the domain name:
     -nslookup -type=CNAME google.com
     -nslookup -type=TXT google.com
 
+• `tshark` - TShark is the command-line version of Wireshark which:
+1.  Captures packets live from a network interface, or reads from a capture file (.pcap or .pcapng).
+2.  Decodes (dissects) network protocols in great detail (Ethernet, IP, ARP, DHCP, HTTP, TLS, etc.).
+3.  Can filter, export, and summarize packets just like Wireshark.     
+##### ✏️examples:
+    -tshark -r arp.pcapng -Nn       ➝ reads the capture file and displays packets using numeric addresses only (no DNS or name lookups).-r arp.pcapng means Read packets from the file arp.pcapng. -N tells tshark what kinds of names to resolve (like network, transport, or DNS names).The lowercase n here means don’t resolve names — i.e., show raw IP addresses and port numbers, no DNS or hostname lookups.
+
+
+• `Tcpdump` - A classic command-line packet sniffer and analyzer.Captures live packets or reads from a .pcap file.
+##### ✏️examples:
+    -tcpdump -r arp.pcapng -n -v .-n  Meaning: Don’t resolve hostnames or port names. -v stands for more detailed packet information than the default summary
+
+
+• `tracert` (Windows)/` traceroute` ( Linux) - Shows the path packets take from your computer to a destination (like a website or IP)
+##### ✏️examples:
+    -traceroute example.com
+    
  ---    
 
 # 🖧 **Topologies**
@@ -338,3 +358,7 @@ A URL (Uniform Resource Locator) tells the browser how and where to access a res
     10.0.0.0 - 10.255.255.255 (10/8)
     172.16.0.0 - 172.31.255.255 (172.16/12)
     192.168.0.0 - 192.168.255.255 (192.168/16)
+
+• Some routing algorithms-
+1. `RIP (Routing Information Protocol)` - Routers talk to each other using RIP messages.Each router shares its routing table (list of networks it knows about) with its neighbors every 30 seconds.RIP uses hop count as the only “score” to decide the best path
+2. `EIGRP ( Enhanced Interior Gateway Routing Protocol)` - Cisco proprietary routing protocol in which Routers exchange routing info using EIGRP messages only when things change.EIGRP considers bandwidth(maximum amount of data that can be sent over a network connection in a certain amount of time) and delay
