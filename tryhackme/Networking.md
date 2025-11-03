@@ -166,6 +166,11 @@ In a 5 layer model ,it's in the application layer.
 • `Router` - a device that connects networks and passes data between them.Operates in the network layer and uses IPs.I can log in to the router using a web browser (like typing an IP address) or a command-line console.Through this interface, I can change settings and set up rules for how the router behaves.
 
 ---
+• `NAT (Network Address Translation) ` - a process that happens on a router (or firewall) that changes IP addresses as packets pass through it.There aren’t enough public IPv4 addresses for every device on Earth.AT solves this by letting many devices share one public IP address when they access the Internet.
+🔸note: NAT isn’t a separate physical device — it’s a function (software feature) that runs on my router or firewall.
+
+
+---
 
 • `Network address` - The portion of an IP address used to identify the network segment (consists of the most significant bits)
 
@@ -213,12 +218,12 @@ Think of it like an apartment number in a building — it says which program on 
 It sits between networks (e.g., between your LAN and the Internet) or sometimes within a single network.
 It checks packets using rules based on:IP addresses,Ports and protocols (meaning it operates on network and transport layers ).
 
----
+
 
 • `stateless firewall` -(static) it looks at each packet individually.It doesn’t remember anything about previous packets.It makes decisions only based on static rules, like:Source IP
 ,Destination IP,Port number,Protocol (TCP/UDP).these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)
 
----
+
 
 • `stateful firewall` - (dynamic) tracks the state of each connection (like TCP handshakes).It keeps a state table to remember active sessions.It understands:Which connections are new, established, or related. Also understands whether a packet belongs to an existing session.
 
@@ -362,3 +367,7 @@ A URL (Uniform Resource Locator) tells the browser how and where to access a res
 • Some routing algorithms-
 1. `RIP (Routing Information Protocol)` - Routers talk to each other using RIP messages.Each router shares its routing table (list of networks it knows about) with its neighbors every 30 seconds.RIP uses hop count as the only “score” to decide the best path
 2. `EIGRP ( Enhanced Interior Gateway Routing Protocol)` - Cisco proprietary routing protocol in which Routers exchange routing info using EIGRP messages only when things change.EIGRP considers bandwidth(maximum amount of data that can be sent over a network connection in a certain amount of time) and delay
+
+
+
+
