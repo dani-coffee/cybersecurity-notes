@@ -103,7 +103,8 @@ When you access a website, DNS follows these steps to resolve the domain name:
 2.  Decodes (dissects) network protocols in great detail (Ethernet, IP, ARP, DHCP, HTTP, TLS, etc.).
 3.  Can filter, export, and summarize packets just like Wireshark.     
 ##### ✏️examples:
-    -tshark -r arp.pcapng -Nn       ➝ reads the capture file and displays packets using numeric addresses only (no DNS or name lookups).-r arp.pcapng means Read packets from the file arp.pcapng. -N tells tshark what kinds of names to resolve (like network, transport, or DNS names).The lowercase n here means don’t resolve names — i.e., show raw IP addresses and port numbers, no DNS or hostname lookups.
+    -tshark -r arp.pcapng -Nn       ➝ reads the capture file and displays packets using numeric addresses only (no DNS or name lookups).-r arp.pcapng means Read packets from the file arp.pcapng. -N Controls name resolution display style (it’s a Wireshark/TShark internal flag)..The lowercase n here means don’t resolve names — i.e., show raw IP addresses and port numbers, no DNS or hostname lookups.
+    -tshark -r dns-query.pcapng -Nn       ➝This tells TShark not to capture live traffic, but instead to read packets from the existing file dns-query.pcapng.
 
 
 • `Tcpdump` - A classic command-line packet sniffer and analyzer.Captures live packets or reads from a .pcap file.
