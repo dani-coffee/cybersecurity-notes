@@ -134,7 +134,7 @@ MIN	What minute to execute at,HOUR	What hour to execute at,DOM	What day of the m
 
  • `history` - list of all the commands I’ve previously run in my shell session 
 
-• `telnet` - old network protocol and command-line tool used to connect to remote computers over TCP (like SSH does today).
+• `telnet` - old network protocol and command-line tool used to connect to remote computers over TCP (like SSH does today).Unlike SSH, Telnet is not encrypted, which is why it's rarely used today for secure remote access.
 ##### ✏️examples: 
 	telnet 10.10.34.40 7	➝echo server
 	10.10.34.40 13	➝daytime server
