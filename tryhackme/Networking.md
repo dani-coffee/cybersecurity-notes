@@ -81,6 +81,31 @@ When you access a website, DNS follows these steps to resolve the domain name:
 
 ---
 
+• `File Transfer Protocol (FTP) ` - FTP (File Transfer Protocol) is used to transfer files between computers over a TCP/IP network, such as the Internet. It enables users to upload, download, and manage files on remote servers.
+
+#####  ✏️ **example**:  
+       -ftp 10.10.154.57 ( connect to 10.10.154.47)  then i use the username and password ( existing feature is using anonymous as username and no psasword,but i can user user@example,com for example too-my mail)
+       then i can type: type ascii- ASCII mode is used for transferring text files (like .txt, .html, .csv . I can also use type binary for  Non-text files (images, zips, etc.)
+       then I do : get file1.txt to retreive this file , it's downloaded to my current working directory in the terminal
+
+--- 
+
+• `SMTP (Simple Mail Transfer Protocol)` -  is the standard protocol used to send emails across the internet. It works by transferring messages from a sender’s email client to the recipient’s email server.SMTP can be used via Telnet, but it's not the standard way people send emails today.
+#####  ✏️ **example**: 
+       telnet smtp.example.com 25
+              HELO mydomain.com
+              MAIL FROM:<me@mydomain.com>
+              RCPT TO:<you@example.com>
+              DATA
+              Subject: Test
+              This is a test email.
+              .
+              QUIT
+🔸note: Telnet only creates plain, unencrypted TCP connections, which Gmail rejects for security reasons. Gmail uses secure SMTP over port 587 (STARTTLS) or port 465 (SSL).It requires authentication (your username and password).It also requires encryption, which Telnet does not support.
+
+
+---
+
 
 # 🔧 **Tools**
 • `ping` - determines the performance of a connection between devices, for example, if the connection exists or not. Uses ICMP 
