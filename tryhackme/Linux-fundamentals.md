@@ -42,6 +42,10 @@
  
 • `whoami` - tells me my username on my machine
 
+• `whois` -used to look up information about domain names or IP addresses — it tells you who owns them, when they were registered, and other details.
+##### ✏️examples:
+        -whois twitter.com
+
 • `mv` - moves a source file or a folder to the destination
 #####  ✏️examples:
 	-mv file1.txt file2.txt
