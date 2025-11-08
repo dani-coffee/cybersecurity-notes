@@ -105,6 +105,57 @@ When you access a website, DNS follows these steps to resolve the domain name:
 
 
 ---
+• `POP3 (Post Office Protocol version 3)` - Retrieves emails from a server to my device. Can also Delete emails from the server after downloading (unless configured otherwise).
+#####  ✏️ **example**: 
+              telnet mail.example.com 110
+              USER yourname@example.com
+              PASS yourpassword
+              LIST           # shows list of emails
+              RETR 1         # retrieves email #1
+              DELE 1         # deletes email #1 from server
+              QUIT           # ends session
+              
+🔸note: Telnet only creates plain, unencrypted TCP connections, which Gmail rejects for security reasons. Gmail uses secure SMTP over port 587 (STARTTLS) or port 465 (SSL).It requires authentication (your username and password).It also requires encryption, which Telnet does not support.
+#####  ✏️ **example**: 
+       openssl s_client -connect pop.gmail.com:995       ➝The secure POP3 port (SSL/TLS)
+       USER yourname@gmail.com
+       PASS yourapppassword
+       LIST
+       RETR 1
+       QUIT
+
+
+----
+
+• `IMAP (Internet Message Access Protocol) ` - IMAP lets me access my emails directly from the server, without downloading or deleting them.I can read, organize, and manage my emails from multiple devices — phone, laptop, tablet — and everything stays in sync.
+#####  ✏️ **example**: 
+       telnet mail.example.com 143
+       a001 LOGIN yourname@example.com yourpassword
+       a002 SELECT INBOX
+       a003 FETCH 1 BODY[TEXT]       # reads the first email
+       a004 LOGOUT
+
+---
+
+• `TLS (Transport Layer Security) ` - TLS is a security technology that keeps data private and safe while it’s moving between your device (like your computer or phone) and a server (like Gmail, a website, or an online game).
+#####  ✏️ **example**: 
+       I type my Gmail password → TLS encrypts it → Gmail decrypts it safely on their end.
+       1. I ask to connect securely
+       2.Gmail sends a certificat.The server sends a digital certificate containing its public key , identity info and A signature from a trusted Certificate Authority (CA).
+       3.my phone/computer verifies the certificate is valid
+       4.They perform a key exchange (like Diffie-Hellman-a method that lets two people or devices create a shared secret key — even if they're talking over an insecure network-used in protocols like TLS, VPNs, and SSH to start secure sessions) to agree on a shared session key.
+       5.Encrypted communication begins.Now both sides use the shared symmetric session key  to encrypt and decrypt all the actual email traffic (USER, PASS, RETR, etc.). Only someone who knows this session key can read the messages.
+
+
+
+---
+
+
+
+
+
+
+
 
 
 # 🔧 **Tools**
