@@ -244,6 +244,34 @@ In a 5 layer model ,it's in the application layer.
 • `Application layer` -Defines protocols and services that enable software applications to communicate over the network.Protocols used here are for example DNS and HTTP
 
 ---
+# 🦈 **Wireshark**
+• "Statistics --> Capture File Properties"/clicking the "pcap icon located on the left bottom" - This dialog provides a structured summary of the capture file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 # 🧠 **Additional notes**
 • `ISP` - Internet Service Provider at a monthly fee
@@ -472,4 +500,9 @@ Even with a VPN, leaks can happen, exposing my real identity or location. Common
 2. DNS leaks: my device uses your ISP’s DNS instead of the VPN’s, revealing what sites I visit.
 3. WebRTC leaks: browser features can expose my IP during video calls or peer-to-peer connections.
 4. IPv6 leaks: some VPNs don’t handle IPv6 traffic properly, leaking data.
+
+
+---
+
+
 
