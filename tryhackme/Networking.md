@@ -211,7 +211,24 @@ When you access a website, DNS follows these steps to resolve the domain name:
 ##### ✏️examples:
     -traceroute example.com
     
- ---    
+---    
+• `Crowds tool ` - a tool developed to protect user anonymity online. It works by routing my web requests through a group (or “crowd”) of users, so no one — not even the destination server — can tell who originally made the request.
+Steps with an example:
+1. I make a request (e.g., “Show me cat photos on Google”).
+2. My request is sent to a random crowd member.
+3. That member either:  Forwards it to another crowd member Or sends it to Google (the destination)
+4. The response from Google goes back through the same path, in reverse.
+5. Eventually, the response reaches me, but no one along the path knows if I am the original requester or just forwarding.
+Not used today anymore .Modern tools that build on or surpass Crowds’ ideas include: Tor,I2P etc..
+
+---
+
+
+
+
+
+
+ 
 
 # 🖧 **Topologies**
 • `Star topology` - devices are connected via a central networking device such as a switch or hub. This topology is the most commonly found today because of its reliability and scalability (costs a lot compared to other topologies)
