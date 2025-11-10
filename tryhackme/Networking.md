@@ -1,8 +1,13 @@
 # 📡 **Protocols**
 
-• `SSH` (Secure Shell) - a protocol used for secure communication between devices. It encrypts the entire session—including commands and responses—and decrypts the data once it reaches the destination.
-To connect to a Linux machine remotely I can use :
-`ssh username@ip_address` ,then I'll ne asked to type the password
+• `SSH` (Secure Shell) – A protocol used for **secure communication** between devices over a network.  
+It encrypts everything I send and receive — including commands, passwords, and responses — so no one can spy on the data while it’s traveling.  
+The `-X` option enables **X11 forwarding**, which lets me run graphical (GUI) applications from the remote machine and display them on my local screen.
+To connect to a Linux machine remotely, I can use:
+`ssh username@ip_address`
+then type the password for that user.
+##### ✏️ **Example:**
+       ssh user@192.168.124.148 -X
 
 ---
 
@@ -89,6 +94,20 @@ When you access a website, DNS follows these steps to resolve the domain name:
        then I do : get file1.txt to retreive this file , it's downloaded to my current working directory in the terminal
 
 --- 
+
+• `File Transfer Protocol Secure (FTPS) ` - FTP with added security using SSL/TLS encryption, like HTTPS for websites. It encrypts login and/or file data.
+#####  ✏️ **example**:  
+       ftps://ftp.example.com
+
+---
+• SFTP (SSH File Transfer Protocol) – a secure way to transfer files between computers over the internet. It’s built on SSH (Secure Shell), which means everything — login credentials, commands, and file contents — is encrypted. That’s why it’s considered more secure and simpler to configure than FTPS.
+#####  ✏️ **example**:  
+       sftp user@192.168.1.10
+#####  then I can use commands like :
+        put file.txt   # upload a file
+        get report.pdf # download a file
+
+---
 
 • `SMTP (Simple Mail Transfer Protocol)` -  is the standard protocol used to send emails across the internet. It works by transferring messages from a sender’s email client to the recipient’s email server.SMTP can be used via Telnet, but it's not the standard way people send emails today.
 #####  ✏️ **example**: 
@@ -446,5 +465,11 @@ A URL (Uniform Resource Locator) tells the browser how and where to access a res
 2. `EIGRP ( Enhanced Interior Gateway Routing Protocol)` - Cisco proprietary routing protocol in which Routers exchange routing info using EIGRP messages only when things change.EIGRP considers bandwidth(maximum amount of data that can be sent over a network connection in a certain amount of time) and delay
 
 
-
+---
+•` VPN (Virtual Private Network)` - creates a secure, encrypted tunnel between my device and the internet. It hides my real IP address and location, making it harder for websites, hackers, or governments to track me.
+Even with a VPN, leaks can happen, exposing my real identity or location. Common types include:
+1. IP leaks: my real IP address is exposed.
+2. DNS leaks: my device uses your ISP’s DNS instead of the VPN’s, revealing what sites I visit.
+3. WebRTC leaks: browser features can expose my IP during video calls or peer-to-peer connections.
+4. IPv6 leaks: some VPNs don’t handle IPv6 traffic properly, leaking data.
 
