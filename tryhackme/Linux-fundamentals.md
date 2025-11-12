@@ -140,6 +140,11 @@ MIN	What minute to execute at,HOUR	What hour to execute at,DOM	What day of the m
 	10.10.34.40 13	➝daytime server
 	telnet 10.10.34.40 80  then I add GET / HTTP/1.1 and Host: telnet.thm	➝web server
 
+• `md5sum` -utility used to generate and verify MD5 (Message-Digest Algorithm 5) checksums for files.It’s often used to verify file integrity — to make sure a file hasn’t been corrupted or tampered with during transfer or storage.
+##### ✏️examples: 
+	md5sum filename.txt
+
+
 
 
 # 🚩 **Flags**
