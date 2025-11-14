@@ -262,20 +262,34 @@ In a 5 layer model ,it's in the application layer.
 
 ---
 # 🦈 **Wireshark**
-• "Statistics --> Capture File Properties"/clicking the "pcap icon located on the left bottom" - This dialog provides a structured summary of the capture file.
+| Function | Description |
+|----------|-------------|
+| `Statistics → Capture File Properties` / `pcap icon (bottom left` | Provides a structured summary of the capture file. |
+| `Go → Go to Packet` | Jump to a specific packet by entering its number. |
+| `Edit → Find Packet` | Search for a specific event or value inside the packets. |
+| `File → Export Packets` | Export packets from the capture. Works for all protocols. Options: all packets, only displayed (filtered), marked packets, or a specific range. |
+| `File → Export Objects` | Export objects (files/data) from certain protocols that support file reconstruction, such as HTTP, SMB, TFTP, DICOM, IMF. TCP and HTTPS do not provide objects unless decrypted. |
+| `Analyze → Expert Info` | Analyzes the capture and highlights potential problems, unusual behaviors, or noteworthy events. May contain false positives/negatives. |
+| `Right-click → Apply as Filter` | Creates a filter based on the value clicked. Shows only packets that match that value. |
+| `Right-click → Conversation Filter` | Filters all packets belonging to a specific conversation between two endpoints (devices). |
+| `Right-click → Prepare as Filter` | Creates a filter based on the clicked value like Apply as Filter, but does **not immediately apply** it. |
+| `Right-click → Follow → TCP/UDP/HTTP Stream` | Shows all packets in a single connection or stream in order. Reconstructs the data into a continuous flow instead of individual packets. |
 
 
 
+# 🌐 **TCPdump**
 
-
-
-
-
-
-
-
-
-
+| Command | Description |
+|---------|-------------|
+| `sudo tcpdump -i any` | Capture packets on all network interfaces such as Ethernet,Wi-fi. |
+| `sudo tcpdump -i eth0` | Capture packets on interface `eth0`. |
+| `ip a s` |Shows all network interfaces on my system and their IP addresses |
+| `tcpdump -i eth0 -w capture.pcap` |captures packets on interface eth0 and writes them to capture.pcap. |
+| `tcpdump -r capture.pcap` |reads the packets from capture.pcap and prints them to the terminal. |
+| `tcpdump -i eth0 -c 10` |-c 10 means: capture 10 packets from the specified interface (eth0 in this case) and then exit.|
+| `tcpdump -n -i eth0` | Disable hostname resolution. Meaning the output will be something like : 93.184.216.34.http > 192.168.1.10.52345: Flags [S], seq 0, win 65535, length 0--> as we can see : Hostnames not resolved → IP addresses shown,ports still resolved → port 80 shows as http |
+ | `tcpdump -nn -i eth0` | Disable both hostname and service name resolution. Meaning the output will be something like : 93.184.216.34.80 > 192.168.1.10.52345: Flags [S], seq 0, win 65535, length 0 --> as we can see : Hostnames not resolved → IP addresses shown,Ports not resolved → port numbers shown (80 instead of http) |
+| `tcpdump -v -i eth0` | Provides additional information about each packet beyond the basic summary,-vv → even more verbose, shows deeper details (like TCP options),-vvv → maximum verbosity, can include things like packet timestamps and more protocol headers |
 
 
 
