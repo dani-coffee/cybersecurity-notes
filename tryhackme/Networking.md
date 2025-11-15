@@ -296,14 +296,15 @@ In a 5 layer model ,it's in the application layer.
 | `sudo tcpdump -r traffic.pcap 'arp[6:2] == 1' -n'`| an example of command type proto[expr:size]. In this example we read traffic.pcap and show only ARP REQUEST packets — with numeric IPs/MACs (no name resolution).arp[6:2] = Read 2 bytes starting at offset 6 → Operation field. → "Operation = 1" → ARP REQUEST ( if it were 2 then it means reply) |
 | `sudo tcpdump -r traffic.pcap 'tcp[tcpflags] == tcp-rst'` then doing wc ,note,could also write it as: `tcp[13:1] & 0x04 != 0` tcp[13:1] meaning "read 1 byte starting at offset 13(flags)" | Counts how many TCP packets in traffic.pcap have the RST (Reset) flag set — i.e., how many connections were abruptly terminated. Other main flags are: tcp-ack ,tcp-syn ,tcp-fin,tcp-push .|
 | `sudo tcpdump -r traffic.pcap 'greater 15000' -n'`| Reads traffic.pcap and shows only packets larger than 15,000 bytes — with numeric IPs (no name resolution).The opposite option is using less |
+| `sudo tcpdump -q'`|Shows only the most important info|
+| `sudo tcpdump -e'`|Shows the MAC addresses|
+| `tcpdump -A port 80'`|Shows packet content in text|
+| `tcpdump -xx port 53'`|Print all packet bytes (headers + data) in hexadecimal.|
+| `tcpdump -X port 53'`|Print all packet bytes (headers + data) in hexadecimal.|
 
 
 
-
-
-
-
-
+# 🗺️  **Nmap – Network Mapping **
 
 
 
