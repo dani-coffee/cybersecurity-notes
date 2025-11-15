@@ -290,7 +290,12 @@ In a 5 layer model ,it's in the application layer.
 | `tcpdump -n -i eth0` | Disable hostname resolution. Meaning the output will be something like : 93.184.216.34.http > 192.168.1.10.52345: Flags [S], seq 0, win 65535, length 0--> as we can see : Hostnames not resolved → IP addresses shown,ports still resolved → port 80 shows as http |
  | `tcpdump -nn -i eth0` | Disable both hostname and service name resolution. Meaning the output will be something like : 93.184.216.34.80 > 192.168.1.10.52345: Flags [S], seq 0, win 65535, length 0 --> as we can see : Hostnames not resolved → IP addresses shown,Ports not resolved → port numbers shown (80 instead of http) |
 | `tcpdump -v -i eth0` | Provides additional information about each packet beyond the basic summary,-vv → even more verbose, shows deeper details (like TCP options),-vvv → maximum verbosity, can include things like packet timestamps and more protocol headers |
-
+| `tcpdump -r traffic.pcap icmp host 192.168.124.1 -n ` | Reads the file traffic.pcap and prints only ICMP packets to/from IP 192.168.124.1, with numeric IPs/ports |
+| `sudo tcpdump -r traffic.pcap arp and host 192.168.124.137` |Reads traffic.pcap and shows only ARP packets that involve the IP 192.168.124.137 — either asking for it or answering from it. |
+| `sudo tcpdump -r traffic.pcap port 53 -A` | Reads traffic.pcap and shows all DNS traffic (port 53) with the full packet payload in ASCII (like seeing the actual domain names in queries).|
+| `sudo tcpdump -r traffic.pcap 'arp[6:2] == 1' -n'`| an example of command type proto[expr:size]. In this example we read traffic.pcap and show only ARP REQUEST packets — with numeric IPs/MACs (no name resolution).arp[6:2] = Read 2 bytes starting at offset 6 → Operation field. → "Operation = 1" → ARP REQUEST ( if it were 2 then it means reply) |
+| `sudo tcpdump -r traffic.pcap 'tcp[tcpflags] == tcp-rst'` then doing wc ,note,could also write it as: `tcp[13:1] & 0x04 != 0` tcp[13:1] meaning "read 1 byte starting at offset 13(flags)" | Counts how many TCP packets in traffic.pcap have the RST (Reset) flag set — i.e., how many connections were abruptly terminated. Other main flags are: tcp-ack ,tcp-syn ,tcp-fin,tcp-push .|
+| `sudo tcpdump -r traffic.pcap 'greater 15000' -n'`| Reads traffic.pcap and shows only packets larger than 15,000 bytes — with numeric IPs (no name resolution).The opposite option is using less |
 
 
 
