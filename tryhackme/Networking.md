@@ -304,7 +304,7 @@ In a 5 layer model ,it's in the application layer.
 
 
 
-# 🗺️  **Nmap – Network Mapping **
+# 🗺️  **Nmap – Network Mapping**
 
 
 
