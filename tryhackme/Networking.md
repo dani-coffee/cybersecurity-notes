@@ -305,7 +305,20 @@ In a 5 layer model ,it's in the application layer.
 
 
 # 🗺️  **Nmap – Network Mapping**
-
+| Command | Description |
+|---------|-------------|
+| `nmap -sn 192.168.1.0/24` |Means "Ping Scan".Discovers which hosts are alive/up on the network.It does not scan any ports |
+| `nmap -sL 192.168.1.0/24` |List Scan. It does not send a single packet to any target.It takes the list of IPs/hosts I gave it and does a reverse DNS lookup on every single one of them.|
+| `nmap -sT 192.168.1.1` |nmap performs a complete TCP three-way handshake with every port I'm scanning|
+| `nmap -sS 192.168.1.1` |sends only SYN → never completes the handshake (sends RST immediately if SYN-ACK comes back). This is the famous “stealth scan”|
+| `nmap -sU 192.168.1.1` |sends empty UDP packets to ports. If I get ICMP “port unreachable” back → port is closed. No reply or other ICMP → probably open or filtered.|
+| `sudo nmap -sU -p- 192.168.1.1` |Adding -p- means scan all 65535 ports instead of the default ~1000 common ports. |
+| `sudo nmap -sS -p10-1024 192.168.1.1` |Only check ports 10–1024|
+| `sudo nmap -sS -F 192.168.1.0/24` |Fast scan – nmap scans only the 100 most common ports|
+| `nmap -sS -O 192.168.124.211 ` |-O does operating System detection (and version fingerprinting) Usually 90–98 % correc|
+| `nmap -sS -sV 192.168.124.211` |-sV  finds OS + exact software versions|
+| `nmap -A 192.168.124.211` |-A  enables -O + -sV ( and other flags like --traceroute)|
+| `sudo nmap -sS -Pn 192.168.1.1` | -Pn Tells nmap to skip the host-discovery (ping) phase completely and treat the target as online, even if it doesn’t reply to any pings.Many modern devices — such as home routers , Windows computers with firewalls, or certain IoT gadgets — deliberately ignore ping requests for security. Without -Pn, nmap would wrongly conclude “the host is down” and stop scanning entirely.|
 
 
 ---
