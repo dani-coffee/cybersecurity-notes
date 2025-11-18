@@ -319,7 +319,17 @@ In a 5 layer model ,it's in the application layer.
 | `nmap -sS -sV 192.168.124.211` |-sV  finds OS + exact software versions|
 | `nmap -A 192.168.124.211` |-A  enables -O + -sV ( and other flags like --traceroute)|
 | `sudo nmap -sS -Pn 192.168.1.1` | -Pn Tells nmap to skip the host-discovery (ping) phase completely and treat the target as online, even if it doesn’t reply to any pings.Many modern devices — such as home routers , Windows computers with firewalls, or certain IoT gadgets — deliberately ignore ping requests for security. Without -Pn, nmap would wrongly conclude “the host is down” and stop scanning entirely.|
-
+| `sudo nmap -sS -sV --min-parallelism 100 192.168.1.50` |--min-parallelism <num>  Sets the minimum number of probes (nmap's packets) ,here 100, nmap is allowed to have in flight simultaneously.Prevents nmap from slowing down too much on slow or lossy targets.Very useful for speeding up scans of sluggish IoT devices, printers, or rate-limited hosts.Typical values: 100–500 on local networks.|
+| `sudo nmap -sS -sV --min-rate 150 192.168.1.23` |Forces nmap to never send slower than this (<number>)  many packets per second, no matter what.|
+| `sudo nmap -sS -sV --max-rate 8 203.0.113.50` |nmap will never send faster than this (<number>) many packets per second|
+| `sudo nmap -sS -p- -sV -O --host-timeout 10m 192.168.1.100` |Maximum time nmap is allowed to spend on one single host.After this limit, nmap abandons that host and continues with the next.Prevents one slow/broken device from making the entire scan take forever.|
+| `sudo nmap -sS -p 12345 --reason 192.168.1.50` |Makes nmap explain why it decided a port is open/closed/filtered.Shows the exact packet that came back (syn-ack, reset, or nothing).Very helpful for learning and for understanding firewalls.|
+| `sudo nmap -sS -sV -v 192.168.1.1` |Shows every host as it’s found + open ports in real time. adding -vv adds even more info, can do up to -vvvv ( can also write -v2 instead of -vv for example) |
+| `sudo nmap -sS -sV -p 12345 --reason -d 192.168.1.50` |Prints everything nmap is doing internally (packets, timing, decisions).Good to use -d when a scan behaves strangely and I need to see why. -dd or higher (until -d9) = expert/developer territory.|
+| `sudo nmap -sS -sV 192.168.1.1 -oN myrouter.txt` |Human-readable text, exactly like on screen (.nmap)|
+| `sudo nmap -sS -sV 192.168.1.1 -oX myrouter.xml` |Structured XML file (.xml)|
+| `sudo nmap -F 192.168.1.0/24 -oG homescan.gnmap` |Grepable output - written in a way that is super easy to search with normal Linux tools like grep, awk, cut, etc.|
+| `sudo nmap -sS -sV -O -oA office_scan_2025` |Creates three files at once: .nmap + .xml + .gnmap|
 
 ---
 
