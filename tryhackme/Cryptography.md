@@ -33,7 +33,7 @@ Popular Asymmetric Algorithms:
 | Ed25519    | GitHub SSH keys, Signal, Wire              | 256-bit fixed     | Extremely fast and super secure    |
 
 ### Main Uses of Asymmetric Encryption
-1. **Secure key exchange** – safely share a symmetric key (used by WhatsApp, Signal, HTTPS)
+1. **Secure key exchange** – safely share a symmetric key (used by WhatsApp, Signal, HTTPS) - Encrypt with the public key → decrypt with private key 
 2. **Digital signatures** – prove "this message really came from me"
    - Sign with private key → anyone verifies with my public key
   
@@ -50,4 +50,81 @@ Result:
 
 
 
+---
 
+• `RSA` - RSA is the most widely used **public-key (asymmetric) encryption** algorithm.It lets two parties communicate securely without ever sharing a secret key beforehand.
+RSA security relies on the fact that multiplying two large prime numbers is easy, but factoring the product back into the two original primes is **extremely hard**.
+
+Key generation :
+
+1. Choose two large random prime numbers `p` and `q` (e.g. 2048 bits each today)  
+2. Compute `n = p × q` → this is part of the public key  
+3. Compute ` ϕ(n) = n − p − q + 1 `
+4. Choose `e` (usually 65537) such that 1 < e < λ(n) and gcd(e, λ(n)) = 1  
+5. Compute `d` such that `d × e ≡ 1 (mod λ(n))` → this is the private key  
+
+Public key = (n, e)  
+Private key = (n, d)  or just d (since n is public)
+
+---
+
+• `Diffie-Hellman Key Exchange` - Diffie-Hellman is a way for two people to share a secret key over the internet, without ever sending the secret key itself.
+Publicly agreed values (everyone knows these):
+- A big prime number `p`
+- A base `g` (usually a small number like 3 or 5)
+
+Steps:
+1. Alice picks secret number `a`  
+   Bob picks secret number `b`
+
+2. Alice computes `A = g^a mod p` → sends A to Bob (public)  
+   Bob computes `B = g^b mod p` → sends B to Alice (public)
+
+3. Alice computes `B^a mod p` = `(g^b)^a mod p` = `g^(b×a) mod p`  
+   Bob computes `A^b mod p` = `(g^a)^b mod p` = `g^(a×b) mod p`
+
+Because `a×b = b×a`, both get the **exact same number** → this is their shared secret.
+Third party/uninvited guest sees only `g`, `p`, `A`, and `B` — they would need to solve the **Discrete Logarithm Problem** to find `a` or `b`. That’s believed to be very hard (similar security level to RSA factoring).
+
+---
+
+# 🔧 **Tools**
+
+• `ssh-keygen` - ssh-keygen is the tool used to generate SSH key pairs.
+
+Common SSH Key Algorithms
+
+DSA
+Older digital-signature algorithm. Mostly outdated.
+
+ECDSA
+Uses elliptic-curve cryptography. Smaller keys with similar security.
+
+ECDSA-SK
+ECDSA but stored on a hardware security key (e.g., YubiKey).
+
+Ed25519
+Modern, fast, and secure. Recommended for most users.
+
+Ed25519-SK
+Ed25519 protected by a hardware security key.
+
+RSA
+Classic and widely supported. Still common, but keys must be large (2048–4096 bits).
+
+---
+
+• `John the Ripper` - A popular password-cracking tool used to test password strength or recover lost passwords. It can crack hashes, encrypted files, and more.
+
+---
+
+
+
+
+| Command | Example | Description |
+|---------|---------|-------------|
+| `ssh-keygen` | `ssh-keygen -t ed25519 -C "mykey"` | Tool used to **generate SSH key pairs** (private and public keys). |
+| `ssh -i <privateKeyFile> user@host` | `ssh -i ~/.ssh/id_rsa thm@10.10.200.25` | Connects to a server using your **private key** instead of a password. Replace `<privateKeyFile>` with your key, `user` with the server username, and `host` with the server IP or domain. |
+| `authorized_keys` | `cat ~/.ssh/authorized_keys` | File on the server that lists **public keys allowed to log in**. You can view it with `cat` or edit it to add a key. |
+|  `gpg --import backup.key` | `gpg --import backup.key` | Import a backup GPG private key to a new computer. |
+| `gpg --decrypt confidential_message.gpg` | `gpg --decrypt confidential_message.gpg` | Decrypt messages using your imported GPG key. |
