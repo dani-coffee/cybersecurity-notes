@@ -23,7 +23,9 @@ If an attacker steals the key → game over!
 ---
 
 
-• `Asymmetric Encryption` -Asymmetric encryption (also called **public-key cryptography**) uses **two different keys**: a  Public Key used to **encrypt** or **verify** , and a Private Key used to **decrypt** or **sign**
+• `Asymmetric Encryption` -Asymmetric encryption (also called **public-key cryptography**) uses **two different keys**: a  Public Key used to **encrypt** or **verify** , and a Private Key used to **decrypt** or **sign**.
+ if Alice wants to send somehting to Bob that only he can decrypt she woiuld use Bob's public key to send it.
+
 Popular Asymmetric Algorithms:
 
 | Algorithm  | Where You See It                            | Key Size (common) | Notes                              |
@@ -40,7 +42,7 @@ Popular Asymmetric Algorithms:
 
 ---
 
-Modern Encryption --> Hybrid 
+Modern Encryption (Digital Envelope)--> Hybrid 
 1. Asymmetric (ECC/RSA) → securely exchange a random symmetric key. My device and the server swap a temporary AES key using ECC or RSA – this only happens once at the start  
 2. Symmetric (AES or ChaCha20) → do the actual fast encryption of all messages/files usint the symmectirc key we obtained  from the asymmetric encryption --> After the key is safely shared, everything switches to AES or ChaCha20
 
@@ -128,3 +130,19 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 | `authorized_keys` | `cat ~/.ssh/authorized_keys` | File on the server that lists **public keys allowed to log in**. You can view it with `cat` or edit it to add a key. |
 |  `gpg --import backup.key` | `gpg --import backup.key` | Import a backup GPG private key to a new computer. |
 | `gpg --decrypt confidential_message.gpg` | `gpg --decrypt confidential_message.gpg` | Decrypt messages using your imported GPG key. |
+|  `hexdump <file>` | `hexdump file1.txt` | Displays the file contents in hexadecimal only (grouped words). Does not show ASCII characters. |
+|  `hexdump -C <file>` | `hexdump -C file1.txt` | Shows file contents in canonical format: hex bytes on the left and ASCII representation on the right. |
+|  `hexdump -c <file>` | `hexdump -c file1.txt` | Prints character (ASCII) values of each byte instead of hex — useful for inspecting ASCII only. |
+|`md5sum <file>`	| md5sum file.txt	| Calculates the MD5 hash of the file. Useful for verifying file integrity, but not secure for cryptographic purposes.|
+|`sha1sum <file>`	|sha1sum file.txt	Calculates the SHA-1 hash of the file. Stronger than MD5, but still considered insecure for modern cryptography.|
+|`sha256sum <file>`	|sha256sum file.txt	| Calculates the SHA-256 hash of the file — widely used and considered secure for integrity and cryptographic validation.|
+|`sha512sum <file>`	|sha512sum file.txt	| Calculates the SHA-512 hash of the file — similar to SHA-256 but with a longer, more computation-heavy hash for high-security environments.|
+|`sha512sum <file>`	|sha512sum file.txt	| Calculates the SHA-512 hash of the file — similar to SHA-256 but with a longer, more computation-heavy hash for high-security environments.|
+| `head -n 20 <filename>` | `head -n 20 rockyou.txt` | Displays the first 20 lines of a file (useful for previewing wordlists like rockyou.txt). |
+
+
+
+
+
+
+
