@@ -26,4 +26,14 @@
 
 • ` NIST (National Institute of Standards and Technology)` -  A U.S. government agency that creates standards, guidelines, and best practices for technology and cybersecurity.NIST publishes frameworks like the Cybersecurity Framework (CSF) and guidelines for secure configurations
 
+---
+
 •  [CrackStation](https://crackstation.net/) & [Hashes.com](https://hashes.com/en/decrypt/hash) - Online services that crack weak or unsalted password hashes by comparing them to giant databases of known passwords.
+
+---
+
+•  [hashID](https://pypi.org/project/hashID/) - Automated hash recognition tool
+
+---
+
+• [John the Ripper](https://www.openwall.com/john/) & [Hashcat](https://hashcat.net/hashcat/)  - Popular password-cracking tools used to test password strength or recover lost passwords. They support cracking many hash types, and John the Ripper (Jumbo) can also attack certain encrypted files and archives
