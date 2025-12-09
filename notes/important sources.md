@@ -25,3 +25,5 @@
 ---
 
 • ` NIST (National Institute of Standards and Technology)` -  A U.S. government agency that creates standards, guidelines, and best practices for technology and cybersecurity.NIST publishes frameworks like the Cybersecurity Framework (CSF) and guidelines for secure configurations
+
+•  [CrackStation](https://crackstation.net/) & [Hashes.com](https://hashes.com/en/decrypt/hash) - Online services that crack weak or unsalted password hashes by comparing them to giant databases of known passwords.
