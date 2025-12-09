@@ -35,22 +35,24 @@ Popular Asymmetric Algorithms:
 | Ed25519    | GitHub SSH keys, Signal, Wire              | 256-bit fixed     | Extremely fast and super secure    |
 
 ### Main Uses of Asymmetric Encryption
-1. **Secure key exchange** – safely share a symmetric key (used by WhatsApp, Signal, HTTPS) - Encrypt with the public key → decrypt with private key 
-2. **Digital signatures** – prove "this message really came from me"
-   - Sign with private key → anyone verifies with my public key
-  
+A. **Secure key exchange** (digital envelope,modern encryption)– safely share a symmetric key (used by WhatsApp, Signal, HTTPS): when two devices want to communicate securely, they need a shared symmetric key (for AES/ChaCha20).
+But they must send this key in a way that attackers cannot steal it.
 
----
-
-Modern Encryption (Digital Envelope)--> Hybrid 
-1. Asymmetric (ECC/RSA) → securely exchange a random symmetric key. My device and the server swap a temporary AES key using ECC or RSA – this only happens once at the start  
-2. Symmetric (AES or ChaCha20) → do the actual fast encryption of all messages/files usint the symmectirc key we obtained  from the asymmetric encryption --> After the key is safely shared, everything switches to AES or ChaCha20
-
+Asymmetric encryption solves this:
+1. The server already has a public key and a private key ( symmetric)
+2. My device creates a random symmetric key.
+3. My device encrypts that symmetric key using the server’s public key.
+4. Only the server can decrypt it using its private key.
+5. Now both sides share the same symmetric key safely.
+6. From this point on, all communication uses fast symmetric encryption.
 Result:  
 → As safe as asymmetric  
 → As fast as symmetric
 
 
+B. **Digital signatures** – prove "this message really came from me"
+   - Sign with private key → anyone verifies with my public key
+ 
 
 ---
 
@@ -87,6 +89,7 @@ Steps:
 
 Because `a×b = b×a`, both get the **exact same number** → this is their shared secret.
 Third party/uninvited guest sees only `g`, `p`, `A`, and `B` — they would need to solve the **Discrete Logarithm Problem** to find `a` or `b`. That’s believed to be very hard (similar security level to RSA factoring).
+
 
 ---
 
@@ -141,8 +144,21 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 | `head -n 20 <filename>` | `head -n 20 rockyou.txt` | Displays the first 20 lines of a file (useful for previewing wordlists like rockyou.txt). |
 
 
+# 🧠 **Additional notes**
 
+• On Linux, password hashes are stored in /etc/shadow.The encrypted password field stores the password in hashed form and has four parts:$prefix$options$salt$hash
+ 1. Prefix – shows which hashing algorithm was used.
+ 2. Options – parameters for the hash (like cost or memory settings).
+ 3. Salt – a random value added to the password before hashing.
+ 4. Hash – the actual result of hashing the password + salt.
 
+•Windows passwords use NTLM (based on MD4) and are stored in the SAM database(usually located at  C:\Windows\System32\config\SAM). NTLM hashes look like MD4/MD5, so context helps identify them. Windows also keeps old LM hashes for compatibility. Tools like Mimikatz can extract these hashes. To recognize a hash, check its length, encoding, or source. For reference, [Hashcat Example Hashes](https://hashcat.net/wiki/doku.php?id=example_hashes)
+
+• `Salt` - A salt is just a random string added to your password before hashing.It makes every hash unique, even if two people use the same password.
+
+• `Pepper` - Pepper is a hidden secret added to passwords before hashing, stored outside the database, so even if attackers steal all hashes and salts, they still can’t crack passwords without guessing the pepper too.
+
+• `rainbow table` -  A huge precomputed dictionary of hash → password mappings that only works when hashes are unsalted.
 
 
 
