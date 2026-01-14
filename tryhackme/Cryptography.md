@@ -123,8 +123,9 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 
 ---
 
+• `Hashcat` - password cracking tool used in penetration testing to test the strength of hashed passwords using wordlists or brute-force techniques.syntax: hashcat -m <hash_type> -a <attack_mode> hashfile wordlist. Example: hashcat -m 3200 -a 0 hash.txt /usr/share/wordlists/rockyou.txt ( where -m 3200 is for bcrypt, -m 1800 for sha512 and -m 1400 for sha256 and -a 0 is for dictionary attack)
 
-
+---
 
 | Command | Example | Description |
 |---------|---------|-------------|
@@ -160,5 +161,6 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 
 • `rainbow table` -  A huge precomputed dictionary of hash → password mappings that only works when hashes are unsalted.
 
+•` Hash vs HMAC` -  SHA256 is a hashing algorithm used to ensure data integrity. HMAC is also a hashing method, but it includes a secret key to provide authentication. Neither SHA256 nor HMAC are encryption or encoding, and their outputs cannot be reversed.
 
 
