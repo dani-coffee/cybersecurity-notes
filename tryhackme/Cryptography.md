@@ -120,6 +120,13 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 ---
 
 • `John the Ripper` - A popular password-cracking tool used to test password strength or recover lost passwords. It can crack hashes, encrypted files, and more.
+john [options] [file path].
+
+| Command | Example | Description |
+|---------|---------|-------------|
+| `john --wordlist=[path to wordlist] [path to file]` | `john --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt"` | Auto-Detection (The Default): John will look for "signatures" in the hash. |
+| `john --format=[format] --wordlist=[path to wordlist] [path to file]` | `john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt` | The --format= Flag (The Professional Way): By specifically telling John the format, you save time and ensure accuracy |
+
 
 ---
 
@@ -162,5 +169,8 @@ Classic and widely supported. Still common, but keys must be large (2048–4096 
 • `rainbow table` -  A huge precomputed dictionary of hash → password mappings that only works when hashes are unsalted.
 
 •` Hash vs HMAC` -  SHA256 is a hashing algorithm used to ensure data integrity. HMAC is also a hashing method, but it includes a secret key to provide authentication. Neither SHA256 nor HMAC are encryption or encoding, and their outputs cannot be reversed.
+
+• `The SAM (Security Account Manager)`- The SAM is a database file in Windows that stores the passwords for local users.
+• `NTHash / NTLM` - NTHash is the cryptographic format (MD4) used to store passwords on disk and in memory.NTHashes are unsalted. NTLM  is the dynamic "Challenge-Response" (nonce) protocol used to authenticate over a network. It uses the NTHash to prove identity without sending the actual password.
 
 
