@@ -171,6 +171,7 @@ john [options] [file path].
 •` Hash vs HMAC` -  SHA256 is a hashing algorithm used to ensure data integrity. HMAC is also a hashing method, but it includes a secret key to provide authentication. Neither SHA256 nor HMAC are encryption or encoding, and their outputs cannot be reversed.
 
 • `The SAM (Security Account Manager)`- The SAM is a database file in Windows that stores the passwords for local users.
+
 • `NTHash / NTLM` - NTHash is the cryptographic format (MD4) used to store passwords on disk and in memory.NTHashes are unsalted. NTLM  is the dynamic "Challenge-Response" (nonce) protocol used to authenticate over a network. It uses the NTHash to prove identity without sending the actual password.
 
 
